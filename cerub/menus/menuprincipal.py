@@ -1,3 +1,8 @@
+from cerub.controles.controlar import Control
+from cerub.registros.registrar import Register
+from pathlib import Path
+import json
+
 class Menu():
     def __init__(self):
         return None
@@ -15,10 +20,15 @@ class Menu():
         opcion = 0
 
         while opcion != '5':
+            database = Control()
             print(prompt)
             opcion = input('Introduzca la opción deseada:')
             if opcion == '1':
                 print('Registar paciente')
+                nuevoPac = Register()
+                pacientes = database.leerdatabase()
+                pacientes.append(nuevoPac.registrapac)
+                database.escribir(pacientes)
             elif opcion == '2':
                 print('Registrar visita')
             elif opcion == '3':
