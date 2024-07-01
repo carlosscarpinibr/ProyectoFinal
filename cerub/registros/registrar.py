@@ -27,7 +27,7 @@ class Register():
                 print('Este campo no puede estar vacio, intente nuevamente')
             else:
                 break
-        codPaciente = f'{apellido[0]}{apellido[1]}{apellido[2]}{nombre[0]}{nombre[1]}{nombre[2]}{edad}2024'.upper()
+        codPaciente = f'{apellido[0]}{apellido[1]}{nombre[0]}{nombre[1]}{edad}2024'.upper()
         nuevoPaciente = {codPaciente : {
             'name' : nombre,
             'surename' : apellido,

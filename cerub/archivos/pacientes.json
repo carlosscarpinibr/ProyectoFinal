@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "SCACAL362024": {
+            "age": 36,
+            "mail": "carlos@gmail.com",
+            "name": "Cal",
+            "surename": "Scar"
+        }
+    },
+    {
+        "ALDE322024": {
+            "age": 32,
+            "mail": "deb@gmail.com",
+            "name": "Deb",
+            "surename": "Alves"
+        }
+    }
+]

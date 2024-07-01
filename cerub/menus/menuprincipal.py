@@ -20,19 +20,21 @@ class Menu():
         opcion = 0
 
         while opcion != '5':
-            database = Control()
+            metodoControle = Control()
             print(prompt)
             opcion = input('Introduzca la opción deseada:')
             if opcion == '1':
                 print('Registar paciente')
-                nuevoPac = Register()
-                pacientes = database.leerdatabase()
-                pacientes.append(nuevoPac.registrapac)
-                database.escribir(pacientes)
+                metodoRegistro = Register()
+                nuevoPac = metodoRegistro.registrapac()
+                database = metodoControle.leerdatabase()
+                database.append(nuevoPac)
+                metodoControle.escribir(database)
             elif opcion == '2':
                 print('Registrar visita')
             elif opcion == '3':
                 print('Listar pacientes')
+                print(metodoControle.leerdatabase())
             elif opcion == '4':
                 print('Listar visitas')
             elif opcion == '5':

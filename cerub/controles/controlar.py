@@ -20,7 +20,8 @@ class Control():
     def leerdatabase(self):
         archivo = Path('cerub/archivos/pacientes.json')
         contenidoLista = archivo.read_text()
-        return contenidoLista
+        lista = json.loads(contenidoLista)
+        return lista
     
     def escribir(self, pacientes):
         archivo = Path('cerub/archivos/pacientes.json')
