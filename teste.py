@@ -1,34 +1,27 @@
 from tkinter import *
 from pathlib import Path
 import json
+import time
 
 def hola():
     r.set(f'Hola Mundo!!!')
     return r
 
-def leerdatabase():
-        archivo = Path('cerub/archivos/pacientes.json')
-        contenidoLista = archivo.read_text()
-        lista = json.loads(contenidoLista)
-        return lista
-    
-def escribir():
-        archivo = Path('cerub/archivos/pacientes.json')
-        contenidos = json.dumps(nuevoPaciente, indent=4, sort_keys=True)
-        archivo.write_text(contenidos)
 
 def nuevo():
     archivo = Path('cerub/archivos/pacientes.json')
     contenidoLista = archivo.read_text()
     lista = json.loads(contenidoLista)
-    nuevoPaciente = {
+    timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
+    nuevoPaciente = {timestamp:{
             'name' : nombre.get(),
             'surename' : apellido.get(),
             'age' : edad.get(),
             'mail' : email.get()
-        }
+        }}
     #pac.set(f'{nombre.get()},{apellido.get()},{edad.get()},{email.get()}')
-    pac.set(f'{nuevoPaciente['name']},{nuevoPaciente['surename']},{nuevoPaciente['age']},{nuevoPaciente['mail']}')
+    #pac.set(f'{timestamp},{nuevoPaciente['name']},{nuevoPaciente['surename']},{nuevoPaciente['age']},{nuevoPaciente['mail']}')
+    pac.set(f'Paciente salvo')
     lista.append(nuevoPaciente)
     contenidos = json.dumps(lista, indent=4, sort_keys=True)
     archivo.write_text(contenidos)
