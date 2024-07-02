@@ -63,6 +63,7 @@ def nuevo():
             'age' : edad,
             'mail' : email
         }
+    print(nuevoPaciente)
     return nuevoPaciente
 
 Button(root, text='Salvar', command = nuevo).grid(row=6, column=1, padx=5, pady=5, sticky=E)
