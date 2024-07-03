@@ -15,9 +15,9 @@ def nuevo():
     timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
     nuevoPaciente = {timestamp:{
             'name' : nombre.get(),
-            'surename' : apellido.get(),
+            'doctor' : medico.get(),
             'age' : edad.get(),
-            'mail' : email.get()
+            'medicine' : medicacion.get()
         }}
     #pac.set(f'{nombre.get()},{apellido.get()},{edad.get()},{email.get()}')
     #pac.set(f'{timestamp},{nuevoPaciente['name']},{nuevoPaciente['surename']},{nuevoPaciente['age']},{nuevoPaciente['mail']}')
@@ -35,11 +35,12 @@ root = Tk()
 
 # creamos las variables de texto
 nombre = StringVar()
-apellido = StringVar()
+medico = StringVar()
 edad = StringVar()
-email = StringVar()
+medicacion = StringVar()
 pac = StringVar()
 r = StringVar()
+i = 70
 
 
 root.title("Nuevo paciente")
@@ -54,41 +55,44 @@ enter_info = Label(root, text="Introduzca los datos del paciente: ", bg="lightgr
 enter_info.grid(row=0, column=2, columnspan=4, padx=5, pady=5)
 
 # Name label and entry widgets
-Label(root, text="Nombre", bg="lightgrey").grid(row=2, column=1, padx=5, pady=5, sticky=E)
+Label(root, text="Nombre:", bg="lightgrey").grid(row=2, column=1, padx=5, pady=5)
 
 nombrem = Entry(root, textvariable = nombre, bd=3)
-nombrem.grid(row=2, column=2, padx=5, pady=5)
+nombrem.grid(row=2, column=2,padx=5, pady=5)
+nombrem.config(width=i)
 
 # creamos el segundo marco con su entry y su label
 
-Label(root, text="Apellido", bg="lightgrey").grid(row=3, column=1, padx=5, pady=5, sticky=E)
-apellidom = Entry(root, textvariable = apellido, bd=3)
-apellidom.grid(row=3, column=2, padx=5, pady=5)
-
+Label(root, text="Médico", bg="lightgrey").grid(row=3, column=1, padx=5, pady=5)
+medicom = Entry(root, textvariable = medico, bd=3)
+medicom.grid(row=3, column=2, padx=5, pady=5)
+medicom.config(width=i)
 # creamos el tercer marco con su entry y su label
-Label(root, text="Edad", bg="lightgrey").grid(row=4, column=1, padx=5, pady=5, sticky=E)
+Label(root, text="Edad", bg="lightgrey").grid(row=4, column=1, padx=5, pady=5)
 #Label(root, text="inches", bg="lightgrey").grid(row=4, column=3, sticky=W)
 
 edadm = Entry(root, textvariable = edad, bd=3)
 edadm.grid(row=4, column=2, padx=5, pady=5)
+edadm.config(width=i)
 
-Label(root, text="E-mail", bg="lightgrey").grid(row=5, column=1, padx=5, pady=5, sticky=E)
+Label(root, text="Medicación", bg="lightgrey").grid(row=5, column=1, padx=5, pady=5)
 #Label(root, text="lbs", bg="lightgrey").grid(row=5, column=3, sticky=W)
 
 # creamos el cuarto marco con su entry y su label
-emailm = Entry(root, textvariable = email, bd=3)
-emailm.grid(row=5, column=2, padx=5, pady=5)
+medicacionm = Entry(root, textvariable = medicacion, bd=3)
+medicacionm.grid(row=5, column=2, padx=5, pady=5)
+medicacionm.config(width=i)
 
 # botones
-Button(root, text='Hello', command = hola).grid(row=6, column=2, padx=5, pady=5, sticky=E)
-Button(root, text='Salvar', command = nuevo).grid(row=9, column=2, padx=5, pady=5, sticky=E)
+Button(root, text='Hello', command = hola).grid(row=8, column=1, padx=5, pady=5)
+Button(root, text='Salvar', command = nuevo).grid(row=9, column=1, padx=5, pady=5)
 
 # monitor
-Label(root, text='\nTeste Hello').grid(row=7, column=2, padx=5, pady=5, sticky=E)
-Entry(root, justify='center', textvariable = r, state='disable').grid(row=8, column=2, padx=5, pady=5, sticky=E) # resultado
+Label(root, text='\nTeste Hello').grid(row=6, column=1, padx=5, pady=5)
+Entry(root, justify='center', textvariable = r, state='disable').grid(row=6, column=2, padx=1, pady=1) # resultado
 
-Label(root, text='\nTeste Paciente').grid(row=10, column=2, padx=5, pady=5, sticky=E)
-Entry(root, justify='center', textvariable = pac, state='disable').grid(row=11, column=2, padx=5, pady=5, sticky=E) # resultado
+Label(root, text='\nTeste Paciente').grid(row=7, column=1, padx=5, pady=5)
+Entry(root, justify='center', textvariable = pac, state='disable').grid(row=7, column=2, padx=1, pady=1) # resultado
 
 
 
