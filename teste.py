@@ -19,7 +19,27 @@ def nuevo():
             'age' : edad.get(),
             'medicine' : medicacion.get(),
             'weight' : peso.get(),
-            'date': fecha.get()
+            'date': fecha.get(),
+            'insurance' : seguro.get(),
+            'seat' : poltrona.get(),
+            'birthday' : fechaNasm.get(),
+            'team' : equipo.get(),
+            'doses' : dosis.get(),
+            'TIME1' : horario1.get(),
+            'TIME2' : horario2.get(),
+            'PA1' : pa1.get(),
+            'PA2' : pa2.get(),
+            'FC1' : fc1.get(),
+            'FC2' : fc2.get(),
+            'FR1' : fr1.get(),
+            'FR2' : fr2.get(),
+            'SpO21' : spo21.get(),
+            'SpO22' : spo22.get(),
+            'TEMP1' : temp1.get(),
+            'TEMP2' : temp2.get(),
+            'FIRMA1' : firma1.get(),
+            'FIRMA2' : firma2.get()
+
         }}
     #pac.set(f'{nombre.get()},{apellido.get()},{edad.get()},{email.get()}')
     #pac.set(f'{timestamp},{nuevoPaciente['name']},{nuevoPaciente['surename']},{nuevoPaciente['age']},{nuevoPaciente['mail']}')
@@ -37,80 +57,214 @@ root = Tk()
 
 # creamos las variables de texto
 nombre = StringVar()
-medico = StringVar()
 edad = StringVar()
 peso = StringVar()
 fecha = StringVar()
+medico = StringVar()
+seguro = StringVar()
+poltrona = StringVar()
+fechaNas = StringVar()
 medicacion = StringVar()
+dosis = StringVar()
+equipo = StringVar()
+horario1 = StringVar()
+horario2 = StringVar()
+pa1 = StringVar()
+pa2 = StringVar()
+fc1 = StringVar()
+fc2 = StringVar()
+fr1 = StringVar()
+fr2 = StringVar()
+spo21 = StringVar()
+spo22 = StringVar()
+temp1 = StringVar()
+temp2 = StringVar()
+firma1 = StringVar()
+firma2 = StringVar()
 pac = StringVar()
 r = StringVar()
 i = 50
 
 
-root.title("Nuevo paciente")
+root.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
 root.geometry("1024x768")  # set starting size of window
 root.maxsize(1024, 768)  # width x height
 root.config(bg="lightgrey")
 
-# creamos el primer marco con su entry y su label
 
-# Enter specific information for your profile into the following widgets
-enter_info = Label(root, text="CENTRO DE INFUSÃO DE UBERLÂNDIA", bg="lightgrey")
-enter_info.grid(row=0, column=3, columnspan=4, padx=5, pady=5)
+
+# titulo de la pantalla
+enter_info = Label(root, text="NUEVA VISITA", bg="lightgrey")
+enter_info.grid(row=0, column=0, columnspan=10, padx=5, pady=5)
 
 # campo nombre
-Label(root, text="Nombre:", bg="lightgrey").grid(row=2, column=1, padx=5, pady=5)
+Label(root, text="Nombre:", bg="lightgrey").grid(row=2, column=0, padx=5, pady=5)
 nombrem = Entry(root, textvariable = nombre, bd=3)
-nombrem.grid(row=2, column=2,padx=5, pady=5)
+nombrem.grid(row=2, column=1,padx=5, pady=5)
 nombrem.config(width=i)
 
 # campo edad
-Label(root, text="Edad:", bg="lightgrey").grid(row=2, column=3, padx=5, pady=5)
+Label(root, text="Edad:", bg="lightgrey").grid(row=2, column=2, padx=5, pady=5)
 edadm = Entry(root, textvariable = edad, bd=3)
-edadm.grid(row=2, column=4, padx=5, pady=5)
-edadm.config(width=3)
+edadm.grid(row=2, column=3, padx=5, pady=5)
+edadm.config(width=6)
 
 # campo peso
-Label(root, text="Peso:", bg="lightgrey").grid(row=2, column=5, padx=5, pady=5)
+Label(root, text="Peso:", bg="lightgrey").grid(row=2, column=4, padx=5, pady=5)
 pesom = Entry(root, textvariable = peso, bd=3)
-pesom.grid(row=2, column=6, padx=5, pady=5)
+pesom.grid(row=2, column=5, padx=5, pady=5)
 pesom.config(width=3)
 
 # campo fecha
-Label(root, text="Fecha:", bg="lightgrey").grid(row=2, column=7, padx=5, pady=5)
+Label(root, text="Fecha:", bg="lightgrey").grid(row=2, column=6, padx=5, pady=5)
 fecham = Entry(root, textvariable = fecha, bd=3)
-fecham.grid(row=2, column=8, padx=5, pady=5)
+fecham.grid(row=2, column=7, padx=5, pady=5)
 fecham.config(width=11)
 
 
-# creamos el segundo marco con su entry y su label
-
-Label(root, text="Médico:", bg="lightgrey").grid(row=3, column=1, padx=5, pady=5)
+# campo médico
+Label(root, text="Médico:", bg="lightgrey").grid(row=3, column=0, padx=5, pady=5)
 medicom = Entry(root, textvariable = medico, bd=3)
-medicom.grid(row=3, column=2, padx=5, pady=5)
+medicom.grid(row=3, column=1, padx=5, pady=5)
 medicom.config(width=i)
 
+# campo seguro
+Label(root, text="Seguro:", bg="lightgrey").grid(row=3, column=2, padx=5, pady=5)
+segurom = Entry(root, textvariable = seguro, bd=3)
+segurom.grid(row=3, column=3, padx=5, pady=5, sticky=W)
+segurom.config(width=6)
 
+# campo poltrona
+Label(root, text="Poltrona:", bg="lightgrey").grid(row=3, column=4, padx=5, pady=5)
+poltronam = Entry(root, textvariable = poltrona, bd=3)
+poltronam.grid(row=3, column=5, padx=5, pady=5)
+poltronam.config(width=3)
 
-# creamos el cuarto marco con su entry y su label
-Label(root, text="Medicación:", bg="lightgrey").grid(row=5, column=1, padx=5, pady=5)
+# campo fecha nacimento
+Label(root, text="F/N:", bg="lightgrey").grid(row=3, column=6, padx=5, pady=5)
+fechaNasm = Entry(root, textvariable = fechaNas, bd=3)
+fechaNasm.grid(row=3, column=7, padx=5, pady=5)
+fechaNasm.config(width=11)
+
+# campo medicación
+Label(root, text="Medicación:", bg="lightgrey").grid(row=5, column=0, padx=5, pady=5)
 medicacionm = Entry(root, textvariable = medicacion, bd=3)
-medicacionm.grid(row=5, column=2, padx=5, pady=5)
+medicacionm.grid(row=5, column=1, padx=5, pady=5)
 medicacionm.config(width=i)
 
-# botones
-Button(root, text='Hello', command = hola).grid(row=8, column=1, padx=1, pady=1)
-Button(root, text='Salvar', command = nuevo).grid(row=9, column=1, padx=1, pady=1)
+# campo dosis
+Label(root, text="Dosis:", bg="lightgrey").grid(row=5, column=2, padx=5, pady=5)
+dosism = Entry(root, textvariable = dosis, bd=3)
+dosism.grid(row=5, column=3, padx=5, pady=5)
+dosism.config(width=6)
 
-# monitor
-Label(root, text='\nTeste Hello:', bg="lightgrey").grid(row=6, column=1, padx=5, pady=5)
-m1 = Entry(root, justify='center', textvariable = r, state='disable') # resultado
-m1.grid(row=6, column=2, padx=5, pady=5)
+# campo equipo
+Label(root, text="Equipo:", bg="lightgrey").grid(row=6, column=0, padx=5, pady=5)
+equipom = Entry(root, textvariable = equipo, bd=3)
+equipom.grid(row=6, column=1, padx=5, pady=5)
+equipom.config(width=i)
+
+
+
+# titulo de SEÑALES VITALES
+enter_info = Label(root, text="SEÑALES VITALES", bg="lightgrey")
+enter_info.grid(row=7, column=5, columnspan=5, padx=5, pady=5,sticky=W)
+
+# titulo de horário
+enter_info = Label(root, text="Horário", bg="lightgrey")
+enter_info.grid(row=8, column=3, padx=5, pady=5)
+horario1m = Entry(root, textvariable = horario1, bd=3)
+horario1m.grid(row=9, column=3, padx=5, pady=5)
+horario1m.config(width=5)
+horario2m = Entry(root, textvariable = horario2, bd=3)
+horario2m.grid(row=10, column=3, padx=5, pady=5)
+horario2m.config(width=5)
+
+# titulo de PA
+enter_info = Label(root, text="PA", bg="lightgrey")
+enter_info.grid(row=8, column=4, padx=5, pady=5, sticky=N)
+pa1m = Entry(root, textvariable = pa1, bd=3)
+pa1m.grid(row=9, column=4, padx=5, pady=5)
+pa1m.config(width=5)
+pa2m = Entry(root, textvariable = pa2, bd=3)
+pa2m.grid(row=10, column=4, padx=5, pady=5)
+pa2m.config(width=5)
+
+# titulo de FC
+enter_info = Label(root, text="FC", bg="lightgrey")
+enter_info.grid(row=8, column=5, padx=5, pady=5)
+fc1m = Entry(root, textvariable = fc1, bd=3)
+fc1m.grid(row=9, column=5, padx=5, pady=5)
+fc1m.config(width=3)
+fc2m = Entry(root, textvariable = fc2, bd=3)
+fc2m.grid(row=10, column=5, padx=5, pady=5)
+fc2m.config(width=3)
+
+# titulo de FR
+enter_info = Label(root, text="FR", bg="lightgrey")
+enter_info.grid(row=8, column=6, padx=5, pady=5, sticky=N)
+fr1m = Entry(root, textvariable = fr1, bd=3)
+fr1m.grid(row=9, column=6, padx=5, pady=5, sticky=N)
+fr1m.config(width=3)
+fr2m = Entry(root, textvariable = fr2, bd=3)
+fr2m.grid(row=10, column=6, padx=5, pady=5, sticky=N)
+fr2m.config(width=3)
+
+# titulo de Spo2
+enter_info = Label(root, text="SpO2", bg="lightgrey")
+enter_info.grid(row=8, column=7, padx=5, pady=5)
+spo21m = Entry(root, textvariable = spo21, bd=3)
+spo21m.grid(row=9, column=7, padx=5, pady=5)
+spo21m.config(width=5)
+spo22m = Entry(root, textvariable = spo22, bd=3)
+spo22m.grid(row=10, column=7, padx=5, pady=5)
+spo22m.config(width=5)
+
+# titulo de Tº
+enter_info = Label(root, text="Tº", bg="lightgrey")
+enter_info.grid(row=8, column=8, padx=5, pady=5, sticky=W)
+temp1m = Entry(root, textvariable = temp1, bd=3)
+temp1m.grid(row=9, column=8, padx=5, pady=5, sticky=W)
+temp1m.config(width=3)
+temp2m = Entry(root, textvariable = temp2, bd=3)
+temp2m.grid(row=10, column=8, padx=5, pady=5, sticky=W)
+temp2m.config(width=3)
+
+# titulo firma
+enter_info = Label(root, text="Firma", bg="lightgrey")
+enter_info.grid(row=8, column=9, padx=5, pady=5, sticky=N)
+firma1m = Entry(root, textvariable = firma1, bd=3)
+firma1m.grid(row=9, column=9, padx=5, pady=5)
+firma1m.config(width=8)
+firma2m = Entry(root, textvariable = firma2, bd=3)
+firma2m.grid(row=10, column=9, padx=5, pady=5)
+firma2m.config(width=8)
+
+# titulo de ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
+enter_info = Label(root, text="ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM", bg="lightgrey")
+enter_info.grid(row=11, column=0, columnspan=2, padx=5, pady=5)
+
+# campo ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
+texto = Text(root)
+texto.grid(row=12, column=0, columnspan=2, padx=5, pady=5)
+texto.config(width=i, height= 5) # carácteres
+texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
+
+
+
+# botones
+Button(root, text='Hello', command = hola).grid(row=17, column=1, padx=1, pady=1)
+Button(root, text='Salvar', command = nuevo).grid(row=18, column=1, padx=1, pady=1)
+
+# monitores
+Label(root, text='\nTeste Hello:', bg="lightgrey").grid(row=19, column=0, padx=5, pady=5)
+m1 = Entry(root, justify='center', textvariable = r, state='disable')
+m1.grid(row=19, column=1, padx=5, pady=5)
 m1.config(width=i)
 
-Label(root, text='\nTeste Paciente:', bg="lightgrey").grid(row=7, column=1, padx=5, pady=5)
-m2 = Entry(root, justify='center', textvariable = pac, state='disable') # resultado
-m2.grid(row=7, column=2, padx=5, pady=5)
+Label(root, text='\nTeste Paciente:', bg="lightgrey").grid(row=20, column=0, padx=5, pady=5)
+m2 = Entry(root, justify='center', textvariable = pac, state='disable')
+m2.grid(row=20, column=1, padx=5, pady=5)
 m2.config(width=i)
 
 
