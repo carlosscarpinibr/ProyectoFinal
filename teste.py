@@ -28,24 +28,31 @@ def nuevo():
             'TIME1' : horario1.get(),
             'TIME2' : horario2.get(),
             'TIME3' : horario3.get(),
+            'TIME4' : horario4.get(),
             'PA1' : pa1.get(),
             'PA2' : pa2.get(),
             'PA3' : pa3.get(),
+            'PA4' : pa4.get(), 
             'FC1' : fc1.get(),
             'FC2' : fc2.get(),
             'FC3' : fc3.get(),
+            'FC4' : fc4.get(),
             'FR1' : fr1.get(),
             'FR2' : fr2.get(),
             'FR3' : fr3.get(),
+            'FR4' : fr4.get(),
             'SPO21' : spo21.get(),
             'SPO22' : spo22.get(),
             'SPO23' : spo23.get(),
+            'SPO24' : spo24.get(),
             'TEMP1' : temp1.get(),
             'TEMP2' : temp2.get(),
             'TEMP3' : temp3.get(),
+            'TEMP4' : temp4.get(),
             'FIRMA1' : firma1.get(),
             'FIRMA2' : firma2.get(),
             'FIRMA3' : firma3.get(),
+            'FIRMA4' : firma4.get(),
             'admission' : admision.get(),
             'origin' : origin.get(),
             'arrive' : llegada.get(),
@@ -82,24 +89,31 @@ equipo = StringVar()
 horario1 = StringVar()
 horario2 = StringVar()
 horario3 = StringVar()
+horario4 = StringVar()
 pa1 = StringVar()
 pa2 = StringVar()
 pa3 = StringVar()
+pa4 = StringVar()
 fc1 = StringVar()
 fc2 = StringVar()
 fc3 = StringVar()
+fc4 = StringVar()
 fr1 = StringVar()
 fr2 = StringVar()
 fr3 = StringVar()
+fr4 = StringVar()
 spo21 = StringVar()
 spo22 = StringVar()
 spo23 = StringVar()
+spo24 = StringVar()
 temp1 = StringVar()
 temp2 = StringVar()
 temp3 = StringVar()
+temp4 = StringVar()
 firma1 = StringVar()
 firma2 = StringVar()
 firma3 = StringVar()
+firma4 = StringVar()
 admision = StringVar()
 origin = StringVar()
 procedimiento = StringVar()
@@ -111,8 +125,8 @@ i = 50
 
 
 root.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
-root.geometry("1024x768")  # set starting size of window
-root.maxsize(1024, 768)  # width x height
+root.geometry("1366x768")  # set starting size of window
+root.maxsize(1366, 768)  # width x height
 root.config(bg="lightgrey")
 
 
@@ -231,7 +245,7 @@ enter_info.grid(row=8, column=3, padx=5, pady=5)
 
 # titulo de PA
 enter_info = Label(root, text="PA", bg="lightgrey")
-enter_info.grid(row=8, column=4, padx=5, pady=5, sticky=N)
+enter_info.grid(row=8, column=4, padx=5, pady=5)
 
 # titulo de FC
 enter_info = Label(root, text="FC", bg="lightgrey")
