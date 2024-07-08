@@ -424,9 +424,13 @@ texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
 
 
 
+photo = PhotoImage(file='imagen.gif')
+photoimage = photo.subsample(1,1)
+#Label(root, image=photoimage).grid(row=21, column=0)
 # botones
 Button(root, text='Hello', command = hola).grid(row=17, column=1, padx=1, pady=1)
 Button(root, text='Salvar', command = nuevo).grid(row=18, column=1, padx=1, pady=1)
+Button(root, image=photoimage, command = hola).grid(row=21, column=0, padx=1, pady=1)
 
 # monitores
 Label(root, text='\nTeste Hello:', bg="lightgrey").grid(row=19, column=0, padx=5, pady=5)
@@ -438,6 +442,8 @@ Label(root, text='\nTeste Paciente:', bg="lightgrey").grid(row=20, column=0, pad
 m2 = Entry(root, justify='center', textvariable = pac, state='disable')
 m2.grid(row=20, column=1, padx=5, pady=5)
 m2.config(width=i)
+
+
 
 
 # bucle de la aplicación
