@@ -72,10 +72,10 @@ class Visita():
         self.archivo.write_text(self.contenidos)
         return self.pac
 
-    def hola(self):
-        #self.r = StringVar()
-        self.r.set(f'Hola Mundo!!!')
-        return self.r
+    # def hola(self):
+    #     #self.r = StringVar()
+    #     self.r.set(f'Hola Mundo!!!')
+    #     return self.r
 
     def guivisita(self):
         # configuración de la raíz
@@ -453,3 +453,7 @@ class Visita():
 
         # bucle de la aplicación
         self.root.mainloop()
+
+if __name__ == '__main__':
+    menu = Visita()
+    menu.guivisita()
