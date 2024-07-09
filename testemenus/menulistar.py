@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from menurevison import Revision
 from pathlib import Path
 import json
 
@@ -7,19 +8,34 @@ class Listar():
     def __init__(self):
         return None
     
+    def indicelista(self):
+        indice = self.Lb1.curselection()
+        #print(indice[0])
+        #print(self.lista[indice[0]])
+        self.r = Revision()
+        self.r.guirevision(indice[0],self.lista[indice[0]])
+
+    
     def guilista(self):
         
         top = Tk()
         top.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
-        top.geometry("1280x720")  # set starting size of window
+        top.geometry("720x720")  # set starting size of window
         top.maxsize(1366, 768)  # width x height
+
+        # scrollbar
+        scrollbarV = Scrollbar(top, orient=VERTICAL)
+        scrollbarV.grid(column=1, row=0, ipady=300)
+        scrollbarH = Scrollbar(top, orient=HORIZONTAL)
+        scrollbarH.grid(column=0, row=1, ipadx=150)
         
+
         self.archivo = Path('cerub/archivos/pacientes.json')
         self.contenidoLista = self.archivo.read_text()
         self.lista = json.loads(self.contenidoLista)
         frame1 = ttk.Frame(top, padding="6 6 6 6")
         frame1.grid(column=0, row=0)
-        self.Lb1 = Listbox(frame1, height=40, width=50)
+        self.Lb1 = Listbox(frame1, selectmode=SINGLE, height=40, width=60, yscrollcommand = scrollbarV.set, xscrollcommand = scrollbarH.set)
         i=1
         for visita in self.lista:
             for key, value in visita.items():
@@ -28,6 +44,33 @@ class Listar():
                 self.Lb1.insert(i,f'{fecha} - {hora} - {value['name']}')
                 i = i+1
         self.Lb1.pack()
+
+        scrollbarV.config(command= self.Lb1.yview)
+        scrollbarH.config(command= self.Lb1.xview)
+
+        # self.v = Visita()
+        # tela = self.v.guivisita()
+
+        frame2 = ttk.Frame(top, padding="6 6 6 6")
+        frame2.grid(column=2, row=0)
+        ttk.Button(frame2,  text='Visualizar visita', command =self.indicelista).grid(row=0, column=0, ipadx=2, ipady=2)
+        ttk.Button(frame2,  text='Salir', command = top.destroy).grid(row=1, column=0, ipadx=2, ipady=2)
+        # root.columnconfigure(0, weight=1)
+        # root.rowconfigure(0, weight=1)
+
+        # frame3 = ttk.Frame(top, padding="6 6 6 6")
+        # frame3.grid(column=3, row=0)
+        # ttk.Button(frame3,  text='Visualizar visita', command =self.v.guivisita).grid(row=0, column=0, ipadx=2, ipady=2)
+        # ttk.Button(frame3,  text='Salir', command = top.destroy).grid(row=1, column=0, ipadx=2, ipady=2)
+
+        # frame4 = ttk.Frame(frame3, padding="6 6 6 6")
+        # frame4.grid(column=0, row=0)
+        # # ttk.Button(frame4,  text='Visualizar visita', command =self.v.guivisita).grid(row=0, column=0, ipadx=2, ipady=2)
+        # # ttk.Button(frame4,  text='Salir', command = top.destroy).grid(row=1, column=0, ipadx=2, ipady=2)
+        # tela = ttk.Frame(frame4, padding="6 6 6 6")
+        # frame4.grid(column=0, row=0)
+        # #ttk.Button(frame3,  text='Visualizar visita', command =self.indicelista).grid(row=0, column=0, ipadx=2, ipady=2)
+        # #ttk.Button(frame3,  text='Salir', command = top.destroy).grid(row=1, column=0, ipadx=2, ipady=2)
         
         top.mainloop()
 
