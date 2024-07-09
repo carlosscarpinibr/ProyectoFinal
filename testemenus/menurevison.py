@@ -255,14 +255,14 @@ class Revision():
         self.llegadam = Entry(self.root, textvariable = self.llegada, bd=3)
         self.llegadam.grid(row=10, column=1, padx=5, pady=5)
         self.llegadam.config(width=self.i)
+        self.llegadam.insert(0,value['arrive'])
 
         # campo puncion
         Label(self.root, text="Punción:", bg="lightgrey").grid(row=11, column=0, padx=5, pady=5)
         self.puncionm = Entry(self.root, textvariable = self.puncion, bd=3)
         self.puncionm.grid(row=11, column=1, padx=5, pady=5)
         self.puncionm.config(width=self.i)
-
-
+        self.puncionm.insert(0,value['puncture'])
 
 
         # titulo de SEÑALES VITALES
@@ -301,11 +301,13 @@ class Revision():
         self.horario1m = Entry(self.root, textvariable = self.horario1, bd=3)
         self.horario1m.grid(row=9, column=3, padx=5, pady=5)
         self.horario1m.config(width=5)
+        self.horario1m.insert(0,value['TIME1'])
 
         # campo pa 1
         self.pa1m = Entry(self.root, textvariable = self.pa1, bd=3)
         self.pa1m.grid(row=9, column=4, padx=5, pady=5)
         self.pa1m.config(width=5)
+        self.pa1m.insert(0,value['PA1'])
 
         # campo fc 1
         self.fc1m = Entry(self.root, textvariable = self.fc1, bd=3)
@@ -336,11 +338,13 @@ class Revision():
         self.horario2m = Entry(self.root, textvariable = self.horario2, bd=3)
         self.horario2m.grid(row=10, column=3, padx=5, pady=5)
         self.horario2m.config(width=5)
+        self.horario2m.insert(0,value['TIME2'])
 
         # campo pa 2
         self.pa2m = Entry(self.root, textvariable = self.pa2, bd=3)
         self.pa2m.grid(row=10, column=4, padx=5, pady=5)
         self.pa2m.config(width=5)
+        self.pa2m.insert(0,value['PA2'])
 
         # campo fc 2
         self.fc2m = Entry(self.root, textvariable = self.fc2, bd=3)
@@ -371,11 +375,13 @@ class Revision():
         self.horario3m = Entry(self.root, textvariable = self.horario3, bd=3)
         self.horario3m.grid(row=11, column=3, padx=5, pady=5)
         self.horario3m.config(width=5)
+        self.horario3m.insert(0,value['TIME3'])
 
         # campo pa 3
         self.pa3m = Entry(self.root, textvariable = self.pa3, bd=3)
         self.pa3m.grid(row=11, column=4, padx=5, pady=5)
         self.pa3m.config(width=5)
+        self.pa3m.insert(0,value['PA3'])
 
         # campo fc 3
         self.fc3m = Entry(self.root, textvariable = self.fc3, bd=3)
@@ -403,17 +409,17 @@ class Revision():
         self.firma3m.config(width=8)
 
 
-
-
         # campo horario 4
         self.horario4m = Entry(self.root, textvariable = self.horario4, bd=3)
         self.horario4m.grid(row=12, column=3, padx=5, pady=5)
         self.horario4m.config(width=5)
+        self.horario4m.insert(0,value['TIME4'])
 
         # campo pa 4
         self.pa4m = Entry(self.root, textvariable = self.pa4, bd=3)
         self.pa4m.grid(row=12, column=4, padx=5, pady=5)
         self.pa4m.config(width=5)
+        self.pa4m.insert(0,value['PA4'])
 
         # campo fc 4
         self.fc4m = Entry(self.root, textvariable = self.fc4, bd=3)
