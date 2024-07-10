@@ -12,7 +12,8 @@ class Revision():
         self.archivo = Path('cerub/archivos/pacientes.json')
         self.contenidoLista = self.archivo.read_text()
         self.lista = json.loads(self.contenidoLista)
-        self.timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
+        #self.timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
+        self.timestamp = f'{self.key}'
         #print("aqui", self.nombre.get())
         self.nuevoPaciente = {self.timestamp:{
                 'name' : self.nombrem.get(),
@@ -58,7 +59,9 @@ class Revision():
                 'origin' : self.originm.get(),
                 'arrive' : self.llegadam.get(),
                 'puncture' : self.puncionm.get(),
-                'procedure' : self.procedimientom.get()
+                'procedure' : self.procedimientom.get(),
+                'text1': self.texto1m.get(),
+                'text2': self.texto2m.get()
 
             }}
         
@@ -81,7 +84,7 @@ class Revision():
         # configuración de la raíz
         self.root = Tk()
         #time.sleep(5)
-        for key, value in visit.items():
+        for self.key, self.value in visit.items():
             pass
         self.indice = indice
         #print(type(value['name']))
@@ -133,6 +136,8 @@ class Revision():
         self.procedimiento = StringVar()
         self.llegada = StringVar()
         self.puncion = StringVar()
+        self.texto1 = StringVar()
+        self.texto2 = StringVar()
         self.pac = StringVar()
         self.r = StringVar()
         self.i = 50
@@ -156,28 +161,28 @@ class Revision():
         self.nombrem = Entry(self.root, textvariable = self.nombre, bd=3)
         self.nombrem.grid(row=2, column=1,padx=5, pady=5)
         self.nombrem.config(width=self.i)
-        self.nombrem.insert(0,value['name'])
+        self.nombrem.insert(0,self.value['name'])
 
         # campo edad
         Label(self.root, text="Edad:", bg="lightgrey").grid(row=2, column=2, padx=5, pady=5)
         self.edadm = Entry(self.root, textvariable = self.edad, bd=3)
         self.edadm.grid(row=2, column=3, padx=5, pady=5)
         self.edadm.config(width=6)
-        self.edadm.insert(0,value['age'])
+        self.edadm.insert(0,self.value['age'])
 
         # campo peso
         Label(self.root, text="Peso:", bg="lightgrey").grid(row=2, column=4, padx=5, pady=5)
         self.pesom = Entry(self.root, textvariable = self.peso, bd=3)
         self.pesom.grid(row=2, column=5, padx=5, pady=5)
         self.pesom.config(width=3)
-        self.pesom.insert(0,value['weight'])
+        self.pesom.insert(0,self.value['weight'])
 
         # campo fecha
         Label(self.root, text="Fecha:", bg="lightgrey").grid(row=2, column=6, padx=5, pady=5)
         self.fecham = Entry(self.root, textvariable = self.fecha, bd=3)
         self.fecham.grid(row=2, column=7, padx=5, pady=5)
         self.fecham.config(width=11)
-        self.fecham.insert(0,value['date'])
+        self.fecham.insert(0,self.value['date'])
 
 
         # campo médico
@@ -185,84 +190,84 @@ class Revision():
         self.medicom = Entry(self.root, textvariable = self.medico, bd=3)
         self.medicom.grid(row=3, column=1, padx=5, pady=5)
         self.medicom.config(width=self.i)
-        self.medicom.insert(0,value['doctor'])
+        self.medicom.insert(0,self.value['doctor'])
 
         # campo seguro
         Label(self.root, text="Seguro:", bg="lightgrey").grid(row=3, column=2, padx=5, pady=5)
         self.segurom = Entry(self.root, textvariable = self.seguro, bd=3)
         self.segurom.grid(row=3, column=3, padx=5, pady=5, sticky=W)
         self.segurom.config(width=6)
-        self.segurom.insert(0,value['insurance'])
+        self.segurom.insert(0,self.value['insurance'])
 
         # campo poltrona
         Label(self.root, text="Poltrona:", bg="lightgrey").grid(row=3, column=4, padx=5, pady=5)
         self.poltronam = Entry(self.root, textvariable = self.poltrona, bd=3)
         self.poltronam.grid(row=3, column=5, padx=5, pady=5)
         self.poltronam.config(width=3)
-        self.poltronam.insert(0,value['seat'])
+        self.poltronam.insert(0,self.value['seat'])
 
         # campo fecha nacimento
         Label(self.root, text="F/N:", bg="lightgrey").grid(row=3, column=6, padx=5, pady=5)
         self.fechaNasm = Entry(self.root, textvariable = self.fechaNas, bd=3)
         self.fechaNasm.grid(row=3, column=7, padx=5, pady=5)
         self.fechaNasm.config(width=11)
-        self.fechaNasm.insert(0,value['birthday'])
+        self.fechaNasm.insert(0,self.value['birthday'])
 
         # campo medicación
         Label(self.root, text="Medicación:", bg="lightgrey").grid(row=5, column=0, padx=5, pady=5)
         self.medicacionm = Entry(self.root, textvariable = self.medicacion, bd=3)
         self.medicacionm.grid(row=5, column=1, padx=5, pady=5)
         self.medicacionm.config(width=self.i)
-        self.medicacionm.insert(0,value['medicine'])
+        self.medicacionm.insert(0,self.value['medicine'])
 
         # campo dosis
         Label(self.root, text="Dosis:", bg="lightgrey").grid(row=5, column=2, padx=5, pady=5)
         self.dosism = Entry(self.root, textvariable = self.dosis, bd=3)
         self.dosism.grid(row=5, column=3, padx=5, pady=5)
         self.dosism.config(width=6)
-        self.dosism.insert(0,value['doses'])
+        self.dosism.insert(0,self.value['doses'])
 
         # campo equipo
         Label(self.root, text="Equipo:", bg="lightgrey").grid(row=6, column=0, padx=5, pady=5)
         self.equipom = Entry(self.root, textvariable = self.equipo, bd=3)
         self.equipom.grid(row=6, column=1, padx=5, pady=5)
         self.equipom.config(width=self.i)
-        self.equipom.insert(0,value['team'])
+        self.equipom.insert(0,self.value['team'])
 
         # campo admision
         Label(self.root, text="Admisión:", bg="lightgrey").grid(row=7, column=0, padx=5, pady=5)
         self.admisionm = Entry(self.root, textvariable = self.admision, bd=3)
         self.admisionm.grid(row=7, column=1, padx=5, pady=5, sticky=W)
         self.admisionm.config(width=5)
-        self.admisionm.insert(0,value['admission'])
+        self.admisionm.insert(0,self.value['admission'])
 
         # campo origin
         Label(self.root, text="Origin:", bg="lightgrey").grid(row=8, column=0, padx=5, pady=5)
         self.originm = Entry(self.root, textvariable = self.origin, bd=3)
         self.originm.grid(row=8, column=1, padx=5, pady=5)
         self.originm.config(width=self.i)
-        self.originm.insert(0,value['origin'])
+        self.originm.insert(0,self.value['origin'])
 
         # campo procedimento
         Label(self.root, text="Procedimiento:", bg="lightgrey").grid(row=9, column=0, padx=5, pady=5)
         self.procedimientom = Entry(self.root, textvariable = self.procedimiento, bd=3)
         self.procedimientom.grid(row=9, column=1, padx=5, pady=5)
         self.procedimientom.config(width=self.i)
-        self.procedimientom.insert(0,value['procedure'])
+        self.procedimientom.insert(0,self.value['procedure'])
 
         # campo estado llegada
         Label(self.root, text="Llegada:", bg="lightgrey").grid(row=10, column=0, padx=5, pady=5)
         self.llegadam = Entry(self.root, textvariable = self.llegada, bd=3)
         self.llegadam.grid(row=10, column=1, padx=5, pady=5)
         self.llegadam.config(width=self.i)
-        self.llegadam.insert(0,value['arrive'])
+        self.llegadam.insert(0,self.value['arrive'])
 
         # campo puncion
         Label(self.root, text="Punción:", bg="lightgrey").grid(row=11, column=0, padx=5, pady=5)
         self.puncionm = Entry(self.root, textvariable = self.puncion, bd=3)
         self.puncionm.grid(row=11, column=1, padx=5, pady=5)
         self.puncionm.config(width=self.i)
-        self.puncionm.insert(0,value['puncture'])
+        self.puncionm.insert(0,self.value['puncture'])
 
 
         # titulo de SEÑALES VITALES
@@ -301,188 +306,202 @@ class Revision():
         self.horario1m = Entry(self.root, textvariable = self.horario1, bd=3)
         self.horario1m.grid(row=9, column=3, padx=5, pady=5)
         self.horario1m.config(width=5)
-        self.horario1m.insert(0,value['TIME1'])
+        self.horario1m.insert(0,self.value['TIME1'])
 
         # campo pa 1
         self.pa1m = Entry(self.root, textvariable = self.pa1, bd=3)
         self.pa1m.grid(row=9, column=4, padx=5, pady=5)
         self.pa1m.config(width=5)
-        self.pa1m.insert(0,value['PA1'])
+        self.pa1m.insert(0,self.value['PA1'])
 
         # campo fc 1
         self.fc1m = Entry(self.root, textvariable = self.fc1, bd=3)
         self.fc1m.grid(row=9, column=5, padx=5, pady=5)
         self.fc1m.config(width=3)
-        self.fc1m.insert(0,value['FC1'])
+        self.fc1m.insert(0,self.value['FC1'])
 
         # campo fr 1
         self.fr1m = Entry(self.root, textvariable = self.fr1, bd=3)
         self.fr1m.grid(row=9, column=6, padx=5, pady=5)
         self.fr1m.config(width=3)
-        self.fr1m.insert(0,value['FR1'])
+        self.fr1m.insert(0,self.value['FR1'])
 
         # campo spo2 1
         self.spo21m = Entry(self.root, textvariable = self.spo21, bd=3)
         self.spo21m.grid(row=9, column=7, padx=5, pady=5)
         self.spo21m.config(width=11)
-        self.spo21m.insert(0,value['SPO21'])
+        self.spo21m.insert(0,self.value['SPO21'])
 
         # campo Tº 1
         self.temp1m = Entry(self.root, textvariable = self.temp1, bd=3)
         self.temp1m.grid(row=9, column=8, padx=5, pady=5, sticky=W)
         self.temp1m.config(width=3)
-        self.temp1m.insert(0,value['TEMP1'])
+        self.temp1m.insert(0,self.value['TEMP1'])
 
         # campo firma 1
         self.firma1m = Entry(self.root, textvariable = self.firma1, bd=3)
         self.firma1m.grid(row=9, column=9, padx=5, pady=5)
         self.firma1m.config(width=8)
-        self.firma1m.insert(0,value['FIRMA1'])
+        self.firma1m.insert(0,self.value['FIRMA1'])
 
         # campo horario 2
         self.horario2m = Entry(self.root, textvariable = self.horario2, bd=3)
         self.horario2m.grid(row=10, column=3, padx=5, pady=5)
         self.horario2m.config(width=5)
-        self.horario2m.insert(0,value['TIME2'])
+        self.horario2m.insert(0,self.value['TIME2'])
 
         # campo pa 2
         self.pa2m = Entry(self.root, textvariable = self.pa2, bd=3)
         self.pa2m.grid(row=10, column=4, padx=5, pady=5)
         self.pa2m.config(width=5)
-        self.pa2m.insert(0,value['PA2'])
+        self.pa2m.insert(0,self.value['PA2'])
 
         # campo fc 2
         self.fc2m = Entry(self.root, textvariable = self.fc2, bd=3)
         self.fc2m.grid(row=10, column=5, padx=5, pady=5)
         self.fc2m.config(width=3)
-        self.fc2m.insert(0,value['FC2'])
+        self.fc2m.insert(0,self.value['FC2'])
 
         # campo fr 2
         self.fr2m = Entry(self.root, textvariable = self.fr2, bd=3)
         self.fr2m.grid(row=10, column=6, padx=5, pady=5)
         self.fr2m.config(width=3)
-        self.fr2m.insert(0,value['FR2'])
+        self.fr2m.insert(0,self.value['FR2'])
 
         # campo spo2 2
         self.spo22m = Entry(self.root, textvariable = self.spo22, bd=3)
         self.spo22m.grid(row=10, column=7, padx=5, pady=5)
         self.spo22m.config(width=11)
-        self.spo22m.insert(0,value['SPO22'])
+        self.spo22m.insert(0,self.value['SPO22'])
 
         # campo Tº 2
         self.temp2m = Entry(self.root, textvariable = self.temp2, bd=3)
         self.temp2m.grid(row=10, column=8, padx=5, pady=5, sticky=W)
         self.temp2m.config(width=3)
-        self.temp2m.insert(0,value['TEMP2'])
+        self.temp2m.insert(0,self.value['TEMP2'])
 
         # campo firma 2
         self.firma2m = Entry(self.root, textvariable = self.firma2, bd=3)
         self.firma2m.grid(row=10, column=9, padx=5, pady=5)
         self.firma2m.config(width=8)
-        self.firma2m.insert(0,value['FIRMA2'])
+        self.firma2m.insert(0,self.value['FIRMA2'])
 
         # campo horario 3
         self.horario3m = Entry(self.root, textvariable = self.horario3, bd=3)
         self.horario3m.grid(row=11, column=3, padx=5, pady=5)
         self.horario3m.config(width=5)
-        self.horario3m.insert(0,value['TIME3'])
+        self.horario3m.insert(0,self.value['TIME3'])
 
         # campo pa 3
         self.pa3m = Entry(self.root, textvariable = self.pa3, bd=3)
         self.pa3m.grid(row=11, column=4, padx=5, pady=5)
         self.pa3m.config(width=5)
-        self.pa3m.insert(0,value['PA3'])
+        self.pa3m.insert(0,self.value['PA3'])
 
         # campo fc 3
         self.fc3m = Entry(self.root, textvariable = self.fc3, bd=3)
         self.fc3m.grid(row=11, column=5, padx=5, pady=5)
         self.fc3m.config(width=3)
-        self.fc3m.insert(0,value['FC3'])
+        self.fc3m.insert(0,self.value['FC3'])
 
         # campo fr 3
         self.fr3m = Entry(self.root, textvariable = self.fr3, bd=3)
         self.fr3m.grid(row=11, column=6, padx=5, pady=5)
         self.fr3m.config(width=3)
-        self.fr3m.insert(0,value['FR3'])
+        self.fr3m.insert(0,self.value['FR3'])
 
         # campo spo2 3
         self.spo23m = Entry(self.root, textvariable = self.spo23, bd=3)
         self.spo23m.grid(row=11, column=7, padx=5, pady=5)
         self.spo23m.config(width=11)
-        self.spo23m.insert(0,value['SPO23'])
+        self.spo23m.insert(0,self.value['SPO23'])
 
         # campo Tº 3
         self.temp3m = Entry(self.root, textvariable = self.temp3, bd=3)
         self.temp3m.grid(row=11, column=8, padx=5, pady=5, sticky=W)
         self.temp3m.config(width=3)
-        self.temp3m.insert(0,value['TEMP3'])
+        self.temp3m.insert(0,self.value['TEMP3'])
 
         # campo firma 3
         self.firma3m = Entry(self.root, textvariable = self.firma3, bd=3)
         self.firma3m.grid(row=11, column=9, padx=5, pady=5)
         self.firma3m.config(width=8)
-        self.firma3m.insert(0,value['FIRMA3'])
+        self.firma3m.insert(0,self.value['FIRMA3'])
 
 
         # campo horario 4
         self.horario4m = Entry(self.root, textvariable = self.horario4, bd=3)
         self.horario4m.grid(row=12, column=3, padx=5, pady=5)
         self.horario4m.config(width=5)
-        self.horario4m.insert(0,value['TIME4'])
+        self.horario4m.insert(0,self.value['TIME4'])
 
         # campo pa 4
         self.pa4m = Entry(self.root, textvariable = self.pa4, bd=3)
         self.pa4m.grid(row=12, column=4, padx=5, pady=5)
         self.pa4m.config(width=5)
-        self.pa4m.insert(0,value['PA4'])
+        self.pa4m.insert(0,self.value['PA4'])
 
         # campo fc 4
         self.fc4m = Entry(self.root, textvariable = self.fc4, bd=3)
         self.fc4m.grid(row=12, column=5, padx=5, pady=5)
         self.fc4m.config(width=3)
-        self.fc4m.insert(0,value['FC4'])
+        self.fc4m.insert(0,self.value['FC4'])
 
         # campo fr 4
         self.fr4m = Entry(self.root, textvariable = self.fr4, bd=3)
         self.fr4m.grid(row=12, column=6, padx=5, pady=5)
         self.fr4m.config(width=3)
-        self.fr4m.insert(0,value['FR4'])
+        self.fr4m.insert(0,self.value['FR4'])
 
         # campo spo2 4
         self.spo24m = Entry(self.root, textvariable = self.spo24, bd=3)
         self.spo24m.grid(row=12, column=7, padx=5, pady=5)
         self.spo24m.config(width=11)
-        self.spo24m.insert(0,value['SPO24'])
+        self.spo24m.insert(0,self.value['SPO24'])
 
         # campo Tº 4
         self.temp4m = Entry(self.root, textvariable = self.temp4, bd=3)
         self.temp4m.grid(row=12, column=8, padx=5, pady=5, sticky=W)
         self.temp4m.config(width=3)
-        self.temp4m.insert(0,value['TEMP4'])
+        self.temp4m.insert(0,self.value['TEMP4'])
 
         # campo firma 4
         self.firma4m = Entry(self.root, textvariable = self.firma4, bd=3)
         self.firma4m.grid(row=12, column=9, padx=5, pady=5)
         self.firma4m.config(width=8)
-        self.firma4m.insert(0,value['FIRMA4'])
+        self.firma4m.insert(0,self.value['FIRMA4'])
 
 
 
-        # titulo de ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
-        enter_info = Label(self.root, text="ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM", bg="lightgrey")
+        # titulo de ENFERMAGEM
+        enter_info = Label(self.root, text="ENFERMAGEM", bg="lightgrey")
         enter_info.grid(row=12, column=0, columnspan=3, padx=5, pady=5)
 
         # campo ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
-        self.texto = Text(self.root)
-        self.texto.grid(row=13, column=0, columnspan=3, padx=5, pady=5)
-        self.texto.config(width=self.i, height= 5) # carácteres
-        self.texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
-        #self.texto.insert(0,'value[FIRMA4]')
+        # self.texto = Text(self.root)
+        # self.texto.grid(row=13, column=0, columnspan=3, padx=5, pady=5)
+        # self.texto.config(width=self.i, height= 5) # carácteres
+        # self.texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
+        # #self.texto.insert(0,'value[FIRMA4]')
+
+        # campo ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
+        Label(self.root, text="Anotación:", bg="lightgrey").grid(row=13, column=0, padx=5, pady=5)
+        self.texto1m = Entry(self.root, textvariable = self.texto1, bd=3)
+        self.texto1m.grid(row=13, column=1, padx=5, pady=5)
+        self.texto1m.config(width=self.i,)
+        self.texto1m.insert(0,self.value['text1'])
+
+        Label(self.root, text="Evolución:", bg="lightgrey").grid(row=14, column=0, padx=5, pady=5)
+        self.texto2m = Entry(self.root, textvariable = self.texto2, bd=3)
+        self.texto2m.grid(row=14, column=1, padx=5, pady=5)
+        self.texto2m.config(width=self.i,)
+        self.texto2m.insert(0,self.value['text2'])
 
 
         # botones
         #Button(self.root, text='Hello', command = self.hola).grid(row=14, column=1, padx=1, pady=1)
-        Button(self.root, text='Salvar', command = self.nuevo).grid(row=14, column=1, padx=1, pady=1)
+        Button(self.root,  text='Salir', command = self.root.destroy).grid(row=16, column=0, ipadx=1, ipady=1)
+        Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
 
         # bucle de la aplicación
         self.root.mainloop()

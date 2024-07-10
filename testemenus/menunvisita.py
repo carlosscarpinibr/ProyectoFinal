@@ -58,7 +58,9 @@ class Visita():
                 'origin' : self.originm.get(),
                 'arrive' : self.llegadam.get(),
                 'puncture' : self.puncionm.get(),
-                'procedure' : self.procedimientom.get()
+                'procedure' : self.procedimientom.get(),
+                'text1': self.texto1m.get(),
+                'text2': self.texto2m.get()
 
             }}
         
@@ -127,6 +129,8 @@ class Visita():
         self.procedimiento = StringVar()
         self.llegada = StringVar()
         self.puncion = StringVar()
+        self.texto1 = StringVar()
+        self.texto2 = StringVar()
         self.pac = StringVar()
         self.r = StringVar()
         self.i = 50
@@ -421,19 +425,31 @@ class Visita():
 
 
         # titulo de ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
-        enter_info = Label(self.root, text="ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM", bg="lightgrey")
+        enter_info = Label(self.root, text="ENFERMAGEM", bg="lightgrey")
         enter_info.grid(row=12, column=0, columnspan=3, padx=5, pady=5)
 
         # campo ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
-        self.texto = Text(self.root)
-        self.texto.grid(row=13, column=0, columnspan=3, padx=5, pady=5)
-        self.texto.config(width=self.i, height= 5) # carácteres
-        self.texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
+        # self.texto = Text(self.root)
+        # self.texto.grid(row=13, column=0, columnspan=3, padx=5, pady=5)
+        # self.texto.config(width=self.i, height= 5) # carácteres
+        # self.texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
+        
+
+        # campo ANOTACIÓN / EVOLUCIÓN DE ENFERMAGEM
+        Label(self.root, text="Anotación:", bg="lightgrey").grid(row=13, column=0, padx=5, pady=5)
+        self.texto1m = Entry(self.root, textvariable = self.texto1, bd=3)
+        self.texto1m.grid(row=13, column=1, padx=5, pady=5)
+        self.texto1m.config(width=self.i,)
+
+        Label(self.root, text="Evolución:", bg="lightgrey").grid(row=14, column=0, padx=5, pady=5)
+        self.texto2m = Entry(self.root, textvariable = self.texto2, bd=3)
+        self.texto2m.grid(row=14, column=1, padx=5, pady=5)
+        self.texto2m.config(width=self.i,)
 
 
         # botones
-        #Button(self.root, text='Hello', command = self.hola).grid(row=14, column=1, padx=1, pady=1)
-        Button(self.root, text='Salvar', command = self.nuevo).grid(row=14, column=1, padx=1, pady=1)
+        Button(self.root,  text='Salir', command = self.root.destroy).grid(row=16, column=0, ipadx=1, ipady=1)
+        Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
 
         # monitores
         # enter_info1 = Label(self.root, text='\nTeste Hello:', bg="lightgrey")
