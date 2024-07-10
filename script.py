@@ -5,4 +5,3 @@ verifica = Control()
 verifica.controljson()
 
 start = Menu()
-start()
