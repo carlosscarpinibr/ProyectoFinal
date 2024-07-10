@@ -313,26 +313,31 @@ class Revision():
         self.fc1m = Entry(self.root, textvariable = self.fc1, bd=3)
         self.fc1m.grid(row=9, column=5, padx=5, pady=5)
         self.fc1m.config(width=3)
+        self.fc1m.insert(0,value['FC1'])
 
         # campo fr 1
         self.fr1m = Entry(self.root, textvariable = self.fr1, bd=3)
         self.fr1m.grid(row=9, column=6, padx=5, pady=5)
         self.fr1m.config(width=3)
+        self.fr1m.insert(0,value['FR1'])
 
         # campo spo2 1
         self.spo21m = Entry(self.root, textvariable = self.spo21, bd=3)
         self.spo21m.grid(row=9, column=7, padx=5, pady=5)
         self.spo21m.config(width=11)
+        self.spo21m.insert(0,value['SPO21'])
 
         # campo Tº 1
         self.temp1m = Entry(self.root, textvariable = self.temp1, bd=3)
         self.temp1m.grid(row=9, column=8, padx=5, pady=5, sticky=W)
         self.temp1m.config(width=3)
+        self.temp1m.insert(0,value['TEMP1'])
 
         # campo firma 1
         self.firma1m = Entry(self.root, textvariable = self.firma1, bd=3)
         self.firma1m.grid(row=9, column=9, padx=5, pady=5)
         self.firma1m.config(width=8)
+        self.firma1m.insert(0,value['FIRMA1'])
 
         # campo horario 2
         self.horario2m = Entry(self.root, textvariable = self.horario2, bd=3)
@@ -350,26 +355,31 @@ class Revision():
         self.fc2m = Entry(self.root, textvariable = self.fc2, bd=3)
         self.fc2m.grid(row=10, column=5, padx=5, pady=5)
         self.fc2m.config(width=3)
+        self.fc2m.insert(0,value['FC2'])
 
         # campo fr 2
         self.fr2m = Entry(self.root, textvariable = self.fr2, bd=3)
         self.fr2m.grid(row=10, column=6, padx=5, pady=5)
         self.fr2m.config(width=3)
+        self.fr2m.insert(0,value['FR2'])
 
         # campo spo2 2
         self.spo22m = Entry(self.root, textvariable = self.spo22, bd=3)
         self.spo22m.grid(row=10, column=7, padx=5, pady=5)
         self.spo22m.config(width=11)
+        self.spo22m.insert(0,value['SPO22'])
 
         # campo Tº 2
         self.temp2m = Entry(self.root, textvariable = self.temp2, bd=3)
         self.temp2m.grid(row=10, column=8, padx=5, pady=5, sticky=W)
         self.temp2m.config(width=3)
+        self.temp2m.insert(0,value['TEMP2'])
 
         # campo firma 2
         self.firma2m = Entry(self.root, textvariable = self.firma2, bd=3)
         self.firma2m.grid(row=10, column=9, padx=5, pady=5)
         self.firma2m.config(width=8)
+        self.firma2m.insert(0,value['FIRMA2'])
 
         # campo horario 3
         self.horario3m = Entry(self.root, textvariable = self.horario3, bd=3)
@@ -387,26 +397,31 @@ class Revision():
         self.fc3m = Entry(self.root, textvariable = self.fc3, bd=3)
         self.fc3m.grid(row=11, column=5, padx=5, pady=5)
         self.fc3m.config(width=3)
+        self.fc3m.insert(0,value['FC3'])
 
         # campo fr 3
         self.fr3m = Entry(self.root, textvariable = self.fr3, bd=3)
         self.fr3m.grid(row=11, column=6, padx=5, pady=5)
         self.fr3m.config(width=3)
+        self.fr3m.insert(0,value['FR3'])
 
         # campo spo2 3
         self.spo23m = Entry(self.root, textvariable = self.spo23, bd=3)
         self.spo23m.grid(row=11, column=7, padx=5, pady=5)
         self.spo23m.config(width=11)
+        self.spo23m.insert(0,value['SPO23'])
 
         # campo Tº 3
         self.temp3m = Entry(self.root, textvariable = self.temp3, bd=3)
         self.temp3m.grid(row=11, column=8, padx=5, pady=5, sticky=W)
         self.temp3m.config(width=3)
+        self.temp3m.insert(0,value['TEMP3'])
 
         # campo firma 3
         self.firma3m = Entry(self.root, textvariable = self.firma3, bd=3)
         self.firma3m.grid(row=11, column=9, padx=5, pady=5)
         self.firma3m.config(width=8)
+        self.firma3m.insert(0,value['FIRMA3'])
 
 
         # campo horario 4
@@ -425,26 +440,31 @@ class Revision():
         self.fc4m = Entry(self.root, textvariable = self.fc4, bd=3)
         self.fc4m.grid(row=12, column=5, padx=5, pady=5)
         self.fc4m.config(width=3)
+        self.fc4m.insert(0,value['FC4'])
 
         # campo fr 4
         self.fr4m = Entry(self.root, textvariable = self.fr4, bd=3)
         self.fr4m.grid(row=12, column=6, padx=5, pady=5)
         self.fr4m.config(width=3)
+        self.fr4m.insert(0,value['FR4'])
 
         # campo spo2 4
         self.spo24m = Entry(self.root, textvariable = self.spo24, bd=3)
         self.spo24m.grid(row=12, column=7, padx=5, pady=5)
         self.spo24m.config(width=11)
+        self.spo24m.insert(0,value['SPO24'])
 
         # campo Tº 4
         self.temp4m = Entry(self.root, textvariable = self.temp4, bd=3)
         self.temp4m.grid(row=12, column=8, padx=5, pady=5, sticky=W)
         self.temp4m.config(width=3)
+        self.temp4m.insert(0,value['TEMP4'])
 
         # campo firma 4
         self.firma4m = Entry(self.root, textvariable = self.firma4, bd=3)
         self.firma4m.grid(row=12, column=9, padx=5, pady=5)
         self.firma4m.config(width=8)
+        self.firma4m.insert(0,value['FIRMA4'])
 
 
 
@@ -457,6 +477,7 @@ class Revision():
         self.texto.grid(row=13, column=0, columnspan=3, padx=5, pady=5)
         self.texto.config(width=self.i, height= 5) # carácteres
         self.texto.config(font=('Arial', 12),padx=5, pady=5,selectbackground='red')
+        #self.texto.insert(0,'value[FIRMA4]')
 
 
         # botones
