@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox as MessageBox
 from cerub.guirevision.menurevison import Revision
 from pathlib import Path
 import json
@@ -11,7 +12,14 @@ class Listar():
     def indicelista(self):
         indice = self.Lb1.curselection()
         self.r = Revision()
-        self.r.guirevision(indice[0],self.lista[indice[0]])
+        while True:
+            try:
+                self.r.guirevision(indice[0],self.lista[indice[0]])
+                break
+            except IndexError:
+                MessageBox.showerror("Atención","Selecione una visita en la lista.")
+                break
+            
 
     def crearlista(self):
         self.frame1 = ttk.Frame(self.top, padding="6 6 6 6")
