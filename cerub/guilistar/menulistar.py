@@ -17,7 +17,7 @@ class Listar():
                 self.r.guirevision(indice[0],self.lista[indice[0]])
                 break
             except IndexError:
-                MessageBox.showerror("Atención","Selecione una visita en la lista.")
+                MessageBox.showerror("Atención","Seleccione una visita en la lista para visualizala.")
                 break
             
 
