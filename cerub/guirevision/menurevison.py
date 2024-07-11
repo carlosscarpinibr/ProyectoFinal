@@ -138,8 +138,8 @@ class Revision():
 
 
         # titulo de la pantalla
-        enter_info = Label(self.root, text="Revision Visita", bg="lightgrey")
-        enter_info.grid(row=0, column=0, columnspan=10, padx=5, pady=5)
+        enter_info = Label(self.root, text="REVISIÓN VISITA", bg="lightgrey")
+        enter_info.grid(row=0, column=0, columnspan=10, padx=5, pady=5,ipadx=10, ipady=10)
 
         # campo nombre
         Label(self.root, text="Nombre:", bg="lightgrey").grid(row=2, column=0, padx=5, pady=5)
@@ -478,7 +478,7 @@ class Revision():
 
 
         # botones
-        ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=1, ipadx=1, ipady=1)
+        ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=2, ipadx=5, ipady=5)
         ttk.Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
 
         # bucle de la aplicación

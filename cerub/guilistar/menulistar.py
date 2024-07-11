@@ -35,11 +35,12 @@ class Listar():
         self.crearlista()
 
 
+
     def guilista(self):
         
         self.top = Tk()
         self.top.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
-        self.top.geometry("800x720")  # set starting size of window
+        self.top.geometry("720x720")  # set starting size of window
         self.top.maxsize(1366, 768)  # width x height
 
         # scrollbar

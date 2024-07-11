@@ -13,59 +13,96 @@ class Estadistica():
     
     def guiestadistica(self):
         # pantalla base
-        etop = Tk()
-        etop.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
-        etop.geometry("450x100")  # set starting size of window
-        etop.maxsize(1366, 768)  # width x height
+        self.etop = Tk()
+        self.etop.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
+        self.etop.geometry("450x100")  # set starting size of window
+        self.etop.maxsize(1366, 768)  # width x height
         
-        frame1 = ttk.Frame(etop, padding="6 6 6 6")
-        frame1.grid(column=0, row=0)
-        ttk.Button(frame1,  text='Visualizar visita', command =self.generarhist).grid(row=1, column=0, ipadx=2, ipady=2)
-        ttk.Button(frame1,  text='Actualizar lista de visitas', command =self.generarhist).grid(row=0, column=0, ipadx=2, ipady=2)
-        ttk.Button(frame1,  text='Salir', command = etop.destroy).grid(row=2, column=0, ipadx=2, ipady=2)
+        self.frame1 = ttk.Frame(self.etop, padding="6 6 6 6")
+        self.frame1.grid(column=0, row=0)
+        ttk.Button(self.frame1,  text='Generar histograma', command=self.generaselecion).grid(row=0, column=0, ipadx=2, ipady=2)
+        ttk.Button(self.frame1,  text='Salir', command = self.etop.destroy).grid(row=2, column=0, ipadx=2, ipady=2)
         
-        # frame2 = ttk.Frame(etop, padding="6 6 6 6")
-        # frame2.grid(column=1, row=0)
-        # ttk.Button(frame2,  text='Visualizar visita', command =etop.destroy).grid(row=1, column=0, ipadx=2, ipady=2)
-        # ttk.Button(frame2,  text='Actualizar lista de visitas', command =etop.destroy).grid(row=0, column=0, ipadx=2, ipady=2)
-        # ttk.Button(frame2,  text='Salir', command = etop.destroy).grid(row=2, column=0, ipadx=2, ipady=2)
+        self.opciones = ['Nombre','Médico','Equipo','Medicación']
+        self.frame2 = ttk.Frame(self.etop, padding="6 6 6 6")
+        self.frame2.grid(column=1, row=0)
+        self.parametro = ttk.Combobox(self.frame2,  values = self.opciones, state='readyonly')
+        self.parametro.grid(row=0, column=0, ipadx=2, ipady=2)
         
         # bucle de la aplicación
-        etop.mainloop()
+        self.etop.mainloop()
     
-    def analisadatos(self):
-        listaVisitas = []
-        listaMedicos =[]
-        #frecuencias1 = [4,1,3,2] 
+    def generaselecion(self):
+        if self.parametro.get() == 'Nombre':
+            campo = 'name'
+            listaA, listaB = self.analisadatos(campo)
+            self.generarhistnombres(listaA,listaB)
+        elif self.parametro.get() == 'Médico':
+            campo = 'doctor'
+            listaA, listaB = self.analisadatos(campo)
+            self.generarhistnombres(listaA,listaB)
+        elif self.parametro.get() == 'Equipo':
+            campo = 'team'
+            listaA, listaB = self.analisadatos(campo)
+            self.generarhistnombres(listaA,listaB)
+        elif self.parametro.get() == 'Medicación':
+            campo = 'medicine'
+            listaA, listaB = self.analisadatos(campo)
+            self.generarhistnombres(listaA,listaB)
+        
+
+
+    
+    def analisadatos(self,campo):
+        listaX = []
+        listaY =[]
         frecuencias = []
         controle = Control()
         visitas = controle.leerdatabase()
-        # leitura de la visita
         for visit in visitas:
             for self.key, self.value in visit.items():
-                listaVisitas.append(self.key)
-                listaMedicos.append(self.value['doctor'])
-                #print(f'{self.key}: {self.value['medicine']}')
-        #print(len(listaMedicos))
-        # frec = listaMedicos.count(listaMedicos[0])
-        # print(f1)
-        for i in range(len(listaMedicos)): 
-            frec = listaMedicos.count(listaMedicos[i])
-            frecuencias.append(frec)
-        print(frecuencias)
-        return listaMedicos, frecuencias
+                listaY.append(self.key)
+                listaX.append(self.value[campo])
+        for i in range(len(listaX)):
+            frecuencias.append(1)
+        return listaX, frecuencias
         
-    def generarhist(self):
+    def generarhistmedicos(self,lista1, lista2):
         titulo = 'Cuantidad de visitas por médico'
         etiquetas = {
                         'x': 'Médicos',
                         'y' : 'Numero de visitas'
                     }
-        lista1, lista2 = self.analisadatos()
         fig = px.bar(x=lista1, y=lista2,title=titulo, labels=etiquetas)
         fig.show()
+
+    def generarhistnombres(self, lista1, lista2):
+        titulo = 'Cuantidad de visitas por paciente'
+        etiquetas = {
+                        'x': 'Paciente',
+                        'y' : 'Numero de visitas'
+                    }
+        fig = px.bar(x=lista1, y=lista2,title=titulo, labels=etiquetas)
+        fig.show()
+
+    def generarhistequipo(self,lista1,lista2):
+        titulo = 'Cuantidad de visitas por equipo'
+        etiquetas = {
+                        'x': 'Equipo',
+                        'y' : 'Numero de visitas'
+                    }
+        fig = px.bar(x=lista1, y=lista2,title=titulo, labels=etiquetas)
+        fig.show()    
         
-        
+    def generarhistmedicacion(self,lista1,lista2):
+        titulo = 'Cuantidad de visitas por medicación'
+        etiquetas = {
+                        'x': 'Medicación',
+                        'y' : 'Numero de visitas'
+                    }
+        fig = px.bar(x=lista1, y=lista2,title=titulo, labels=etiquetas)
+        fig.show()
+
 if __name__ == '__main__':
     menu = Estadistica()
     menu.guiestadistica()
