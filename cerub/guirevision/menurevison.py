@@ -478,8 +478,8 @@ class Revision():
 
 
         # botones
-        Button(self.root,  text='Salir', command = self.root.destroy).grid(row=16, column=0, ipadx=1, ipady=1)
-        Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
+        ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=1, ipadx=1, ipady=1)
+        ttk.Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
 
         # bucle de la aplicación
         self.root.mainloop()
