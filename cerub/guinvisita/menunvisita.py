@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from pathlib import Path
+from cerub.controles.controlar import Control
 import json
 import time
 
@@ -9,9 +10,8 @@ class Visita():
         return None
     
     def nuevo(self):
-        self.archivo = Path('cerub/archivos/pacientes.json')
-        self.contenidoLista = self.archivo.read_text()
-        self.lista = json.loads(self.contenidoLista)
+        self.controle = Control()
+        self.lista = self.controle.leerdatabase()
         self.timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
         self.nuevoPaciente = {self.timestamp:{
                 'name' : self.nombrem.get(),
@@ -62,11 +62,8 @@ class Visita():
                 'text2': self.texto2m.get()
 
             }}
-        self.pac.set(f'Paciente salvo')
         self.lista.append(self.nuevoPaciente)
-        self.contenidos = json.dumps(self.lista, indent=4, sort_keys=True)
-        self.archivo.write_text(self.contenidos)
-        return self.pac
+        self.controle.escribir(self.lista)
 
 
     def guivisita(self):

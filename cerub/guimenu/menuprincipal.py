@@ -7,7 +7,7 @@ from cerub.guiestadistica.menuestadistica import Estadistica
 
 class MenuP():
     def about(self):
-            MessageBox.showinfo("Acerca de...","Este programa fue desarrollado por Carlos Scarpini.     Contacto: carlosscarpinibr@gmail.com")
+        MessageBox.showinfo("Acerca de...","Este programa fue desarrollado por Carlos Scarpini.             Contacto: carlosscarpinibr@gmail.com")
 
     def __init__(self):
         self.mroot = Tk()

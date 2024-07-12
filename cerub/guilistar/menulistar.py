@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as MessageBox
 from cerub.guirevision.menurevison import Revision
+from cerub.controles.controlar import Control
 from pathlib import Path
 import json
 
@@ -17,18 +18,17 @@ class Listar():
                 self.r.guirevision(indice[0],self.lista[indice[0]])
                 break
             except IndexError:
-                MessageBox.showerror("Atención","Seleccione una visita en la lista para visualizala.")
+                MessageBox.showerror("Atención","Seleccione una visita en la lista para visualízala.")
                 break
             
 
     def crearlista(self):
         self.frame1 = ttk.Frame(self.top, padding="6 6 6 6")
         self.frame1.grid(column=0, row=0)
-        self.archivo = Path('cerub/archivos/pacientes.json')
-        self.contenidoLista = self.archivo.read_text()
-        self.lista = json.loads(self.contenidoLista)
+        self.controle = Control()
+        self.lista = self.controle.leerdatabase()
         self.Lb1 = Listbox(self.frame1, selectmode=SINGLE, height=40, width=60, yscrollcommand = self.scrollbarV.set, xscrollcommand = self.scrollbarH.set)
-        i=1
+        i=0
         for visita in self.lista:
             for key, value in visita.items():
                 fecha = f'{key[6]}{key[7]}/{key[4]}{key[5]}/{key[0]}{key[1]}{key[2]}{key[3]}'
@@ -38,9 +38,9 @@ class Listar():
         self.Lb1.pack()
 
     def actualizarlista(self):
-        print('Actualizando lista')
         self.Lb1.destroy()
         self.crearlista()
+        MessageBox.showinfo("Atualiza lista","Lista actualizada con exito!")
 
 
 
@@ -48,7 +48,7 @@ class Listar():
         
         self.top = Tk()
         self.top.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
-        self.top.geometry("720x720")  # set starting size of window
+        self.top.geometry("800x720")  # set starting size of window
         self.top.maxsize(1366, 768)  # width x height
 
         # scrollbar

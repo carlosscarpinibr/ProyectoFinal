@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from pathlib import Path
+from cerub.controles.controlar import Control
 import json
 import time
 
@@ -8,10 +9,9 @@ class Revision():
     def __init__(self):
         return None
     
-    def nuevo(self):
-        self.archivo = Path('cerub/archivos/pacientes.json')
-        self.contenidoLista = self.archivo.read_text()
-        self.lista = json.loads(self.contenidoLista)
+    def revisa(self):
+        self.controle = Control()
+        self.lista = self.controle.leerdatabase()
         self.timestamp = f'{self.key}'
         self.nuevoPaciente = {self.timestamp:{
                 'name' : self.nombrem.get(),
@@ -63,8 +63,7 @@ class Revision():
 
             }}
         self.lista[self.indice] = self.nuevoPaciente
-        self.contenidos = json.dumps(self.lista, indent=4, sort_keys=True)
-        self.archivo.write_text(self.contenidos)
+        self.controle.escribir(self.lista)
 
     def guirevision(self, indice, visit):
         
@@ -138,7 +137,7 @@ class Revision():
 
 
         # titulo de la pantalla
-        enter_info = Label(self.root, text="REVISIÓN VISITA", bg="lightgrey")
+        enter_info = Label(self.root, text="REVISIÓN DE VISITA", bg="lightgrey")
         enter_info.grid(row=0, column=0, columnspan=10, padx=5, pady=5,ipadx=10, ipady=10)
 
         # campo nombre
@@ -479,7 +478,7 @@ class Revision():
 
         # botones
         ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=2, ipadx=5, ipady=5)
-        ttk.Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, padx=1, pady=1)
+        ttk.Button(self.root, text='Salvar', command = self.revisa).grid(row=15, column=0, padx=1, pady=1)
 
         # bucle de la aplicación
         self.root.mainloop()
