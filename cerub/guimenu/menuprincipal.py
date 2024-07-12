@@ -10,6 +10,16 @@ class MenuP():
         MessageBox.showinfo("Acerca de...","Este programa fue desarrollado por Carlos Scarpini.             Contacto: carlosscarpinibr@gmail.com")
 
     def __init__(self):
+        '''
+            - Descripción:
+            Pantalla del menu principal del programa, generado por Tkinter.
+            - Entrada de datos:
+            el menu que el usuario desea utilizar
+            - Salida de datos:
+            Una pantalla en que se puede seleccionar: Nueva Visita, Gerenciar Visita, Estadística, Salir.
+            Hay un menu Ayuda con la información acerca del programa.
+        '''
+
         self.mroot = Tk()
 
         frame1 = ttk.Frame(self.mroot, padding="6 6 6 6")

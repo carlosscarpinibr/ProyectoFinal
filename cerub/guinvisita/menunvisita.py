@@ -11,6 +11,14 @@ class Visita():
         return None
     
     def nuevo(self):
+        '''
+            - Descripción:
+            Captura las informaciones introducidas nos campos de nueva vista y las guarda en una variable dict.
+            - Entrada de datos:
+            Hasta 45 informaciones distintas relacionadas a una nuava visita al centro médico.
+            - Salida de datos:
+            Una variable visita(dict) con timestamp como indice es guardada en el archivo pacientes.json
+        '''
         self.controle = Control()
         self.lista = self.controle.leerdatabase()
         self.timestamp = f'{time.strftime("%Y")}{time.strftime("%m")}{time.strftime("%d")}_{time.strftime("%H")}{time.strftime("%M")}{time.strftime("%S")}'
@@ -67,6 +75,14 @@ class Visita():
         self.controle.escribir(self.lista)
 
     def guardarvisita(self):
+        '''
+            - Descripción:
+            Messagebox que pregunta al usuario se desea salvar la nueva visita y cerra la pantalla nueva visita.
+            - Entrada de datos:
+            Hasta 45 informaciones distintas relacionadas a una nueva visita al centro médico.
+            - Salida de datos:
+            Una variable visita(dict) con timestamp como indice es guardada en el archivo pacientes.json
+        '''
         resultado = MessageBox.askquestion("Guardar Visita", 
         "¿Está seguro que desea guardar la visita?")
         
@@ -76,6 +92,15 @@ class Visita():
     
     
     def guivisita(self):
+        '''
+            - Descripción:
+            Pantalla del menu nueva visita, generado por Tkinter.
+            - Entrada de datos:
+            Una pantalla con 45 distintas entradas de datos, que caractizan una visita en el centro médico.
+            - Salida de datos:
+            Una nueva visita(dict) registrada en el archivo pacientes.json
+        '''
+
         # configuración de la raíz
         self.root = Tk()
 

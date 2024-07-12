@@ -12,6 +12,14 @@ class Estadistica():
         return None
     
     def guiestadistica(self):
+        '''
+            - Descripción:
+            Pantalla del menu estadistica 
+            - Entrada de datos:
+            Los parametros de configuración de la pantalla como frame, buttons, title y combobox.
+            - Salida de datos:
+            Una pantalla en que se puede eligir 4 tipos distintos de histogramas y generalos.
+        '''
         # pantalla base
         self.etop = Tk()
         self.etop.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
@@ -35,6 +43,14 @@ class Estadistica():
         self.etop.mainloop()
     
     def generaselecion(self):
+        '''
+            - Descripción:
+            Valores preestabelecidos del combobox para generación del histograma 
+            - Entrada de datos:
+            El usuario elige que parametro será presentado en el histograma junto con el numero de visitas registradas en el programa
+            - Salida de datos:
+            El histograma elegido por el usuario.
+        '''
         if self.parametro.get() == 'Nombre':
             campo = 'name'
             listaA, listaB = self.analisadatos(campo)
@@ -56,6 +72,14 @@ class Estadistica():
 
     
     def analisadatos(self,campo):
+        '''
+            - Descripción:
+            Analisa el parametro elegido en el combobox para generar las lista que sirviran para crear el histograma.
+            - Entrada de datos:
+            Una clave de diccionário, para recoger los datos de las visitas registradas en el programa
+            - Salida de datos:
+            Dos lista que serán utilizadas por las funciones que crearán los graficos.
+        '''
         listaX = []
         listaY =[]
         frecuencias = []
@@ -70,6 +94,14 @@ class Estadistica():
         return listaX, frecuencias
         
     def generarhistmedicos(self,lista1, lista2):
+        '''
+            - Descripción:
+            Genera el histograma con el numero de médicos por numero de visitas registrada en el software.
+            - Entrada de datos:
+            Una lista con los medicos encontrados y una lista con la frequencia de visitas por médico.
+            - Salida de datos:
+            Un histograma generado con el matplotlib con los médicos registrados y la cantidad de visitas registradas.
+        '''
         titulo = 'Cuantidad de visitas por médico'
         etiquetas = {
                         'x': 'Médicos',
@@ -79,6 +111,14 @@ class Estadistica():
         fig.show()
 
     def generarhistnombres(self, lista1, lista2):
+        '''
+            - Descripción:
+            Genera el histograma con el numero de pacientes por numero de visitas registrada en el software.
+            - Entrada de datos:
+            Una lista con los pacientes encontrados y una lista con la frequencia de visitas por médico.
+            - Salida de datos:
+            Un histograma generado con el matplotlib con los pacientes registrados y la cantidad de visitas registradas.
+        '''
         titulo = 'Cuantidad de visitas por paciente'
         etiquetas = {
                         'x': 'Paciente',
@@ -88,6 +128,14 @@ class Estadistica():
         fig.show()
 
     def generarhistequipo(self,lista1,lista2):
+        '''
+            - Descripción:
+            Genera el histograma con el numero equipos por numero de visitas registrada en el software.
+            - Entrada de datos:
+            Una lista con los equipos encontrados y una lista con la frequencia de visitas por médico.
+            - Salida de datos:
+            Un histograma generado con el matplotlib con los equipos registrados y la cantidad de visitas registradas.
+        '''
         titulo = 'Cuantidad de visitas por equipo'
         etiquetas = {
                         'x': 'Equipo',
@@ -97,6 +145,14 @@ class Estadistica():
         fig.show()    
         
     def generarhistmedicacion(self,lista1,lista2):
+        '''
+            - Descripción:
+            Genera el histograma con el numero medicacion por numero de visitas registrada en el software.
+            - Entrada de datos:
+            Una lista con las medicaciones encontradas y una lista con la frequencia de visitas por médico.
+            - Salida de datos:
+            Un histograma generado con el matplotlib con las medicaciones registradas y la cantidad de visitas registradas.
+        '''
         titulo = 'Cuantidad de visitas por medicación'
         etiquetas = {
                         'x': 'Medicación',

@@ -11,6 +11,14 @@ class Revision():
         return None
     
     def revisa(self):
+        '''
+            - Descripción:
+            Captura las informaciones revisadas nos campos de revisión de vista y las guarda en una variable dict.
+            - Entrada de datos:
+            Hasta 45 informaciones distintas revisadas relacionadas a una visita previamente registrada en el programa.
+            - Salida de datos:
+            Una variable visita(dict) con timestamp como indice preservado es guardada en el archivo pacientes.json
+        '''
         self.controle = Control()
         self.lista = self.controle.leerdatabase()
         self.timestamp = f'{self.key}'
@@ -67,6 +75,14 @@ class Revision():
         self.controle.escribir(self.lista)
 
     def guardarvrevisada(self):
+        '''
+            - Descripción:
+            Messagebox que pregunta al usuario se desea salvar las alteraciones realizadas en la visita y cerra la pantalla.
+            - Entrada de datos:
+            Hasta 45 informaciones distintas revisadas relacionadas a una visita previsamente registrada.
+            - Salida de datos:
+            Una variable visita(dict) revisada es guardada en el archivo pacientes.json
+        '''
         resultado = MessageBox.askquestion("Guardar Visita Revisada", 
         "¿Está seguro que desea guardar la visita revisada?")
         
@@ -76,6 +92,14 @@ class Revision():
 
 
     def guirevision(self, indice, visit):
+        '''
+            - Descripción:
+            Pantalla del menu revisón de visita, generado por Tkinter.
+            - Entrada de datos:
+            Una pantalla con hasta 45 datos distintos introducidos anteriormente, donde se puede continuar la visita o cambiar alguna información.
+            - Salida de datos:
+            Una visita(dict) revisada y registrada en el archivo pacientes.json
+        '''
         
         # configuración de la raíz
         self.root = Tk()

@@ -12,6 +12,14 @@ class Listar():
         return None
     
     def indicelista(self):
+        '''
+            - Descripción:
+            Recoge el indice de una visita de la lista y envia para la revision de visita.
+            - Entrada de datos:
+            Una tupla con el valor del indice de la lista de visistas
+            - Salida de datos:
+            El valor del indice de la lista de visitas y la visita(dict) correspondiente para abrir la pantalla de revisión de visita.
+        '''
         indice = self.Lb1.curselection()
         self.r = Revision()
         while True:
@@ -24,6 +32,14 @@ class Listar():
         
 
     def crearlista(self):
+        '''
+            - Descripción:
+            Crea en pantalla la lista de visitas registrada en el programa.
+            - Entrada de datos:
+            Una lista adquirida en la clase Control correspondiente ao datos del archivo .json.
+            - Salida de datos:
+            Un listbox en pantalla con las visitas organizadas por fecha y hora de registro.
+        '''
         self.frame1 = ttk.Frame(self.top, padding="6 6 6 6")
         self.frame1.grid(column=0, row=0)
         self.controle = Control()
@@ -39,11 +55,27 @@ class Listar():
         self.Lb1.pack()
 
     def actualizarlista(self):
+        '''
+            - Descripción:
+            Actualiza el listbox en pantalla.
+            - Entrada de datos:
+            Con un click en el boton Actualiza lista elimina el listbox.
+            - Salida de datos:
+            Crea un nuevo lisbox actualizado.
+        '''
         self.Lb1.destroy()
         self.crearlista()
         MessageBox.showinfo("Atualiza lista","Lista actualizada con exito!")
         
     def borrarvisita(self):
+        '''
+            - Descripción:
+           Borra una visita de la lista de vistas.
+            - Entrada de datos:
+            Con un click en borra visita elimina la vista del programa.
+            - Salida de datos:
+            Crea un nuevo lisbox actualizado.
+        '''
         indice = self.Lb1.curselection()
         controle = Control()
         visitas = controle.leerdatabase()
@@ -61,6 +93,14 @@ class Listar():
         
         
     def imprimirvisita(self):
+        '''
+            - Descripción:
+           Crea un archivo de texto con los datos de la visita para impresión.
+            - Entrada de datos:
+            Con un click en el boton imprimir visita genera el archivo .txt en la carpeta relat.
+            - Salida de datos:
+            Presenta el archivo en pantalla para impresión.
+        '''
         controle = Control()
         visitas = controle.leerdatabase()
         while True:
@@ -83,6 +123,15 @@ class Listar():
 
 
     def guilista(self):
+        '''
+            - Descripción:
+            Pantalla del menu gerenciar vistas
+            - Entrada de datos:
+            Los parametros de configuración de la pantalla como frame, buttons, title y listbox.
+            - Salida de datos:
+            Una pantalla en que se puede seleccionar una visita y revisala, imprimila, borrala.
+            Hay también un boton para actualizar la lista y salir da pantalla.
+        '''
         
         self.top = Tk()
         self.top.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")
