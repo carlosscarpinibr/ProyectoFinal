@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox as MessageBox
 from pathlib import Path
 from cerub.controles.controlar import Control
 import json
@@ -64,6 +65,15 @@ class Revision():
             }}
         self.lista[self.indice] = self.nuevoPaciente
         self.controle.escribir(self.lista)
+
+    def guardarvrevisada(self):
+        resultado = MessageBox.askquestion("Guardar Visita Revisada", 
+        "¿Está seguro que desea guardar la visita revisada?")
+        
+        if resultado == "yes":
+            self.revisa()
+            self.root.destroy()
+
 
     def guirevision(self, indice, visit):
         
@@ -477,7 +487,7 @@ class Revision():
 
         # botones
         ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=2, ipadx=5, ipady=5)
-        ttk.Button(self.root, text='Salvar', command = self.revisa).grid(row=15, column=0, padx=1, pady=1)
+        ttk.Button(self.root, text='Guardar', command = self.guardarvrevisada).grid(row=15, column=0, padx=1, pady=1)
 
         # bucle de la aplicación
         self.root.mainloop()

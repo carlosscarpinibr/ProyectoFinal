@@ -27,7 +27,9 @@ class Estadistica():
         self.frame2 = ttk.Frame(self.etop, padding="6 6 6 6")
         self.frame2.grid(column=1, row=0)
         self.parametro = ttk.Combobox(self.frame2,  values = self.opciones, state='readyonly')
+        self.parametro.current(0)
         self.parametro.grid(row=0, column=0, ipadx=2, ipady=2)
+        
         
         # bucle de la aplicación
         self.etop.mainloop()

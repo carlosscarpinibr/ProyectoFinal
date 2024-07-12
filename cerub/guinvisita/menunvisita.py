@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox as MessageBox
 from pathlib import Path
 from cerub.controles.controlar import Control
 import json
@@ -65,7 +66,15 @@ class Visita():
         self.lista.append(self.nuevoPaciente)
         self.controle.escribir(self.lista)
 
-
+    def guardarvisita(self):
+        resultado = MessageBox.askquestion("Guardar Visita", 
+        "¿Está seguro que desea guardar la visita?")
+        
+        if resultado == "yes":
+            self.nuevo()
+            self.root.destroy()
+    
+    
     def guivisita(self):
         # configuración de la raíz
         self.root = Tk()
@@ -430,7 +439,7 @@ class Visita():
 
         # botones
         ttk.Button(self.root,  text='Salir', command = self.root.destroy).grid(row=15, column=2, ipadx=5, ipady=5)
-        ttk.Button(self.root, text='Salvar', command = self.nuevo).grid(row=15, column=0, ipadx=5, ipady=5)
+        ttk.Button(self.root, text='Guardar', command = self.guardarvisita).grid(row=15, column=0, ipadx=5, ipady=5)
 
 
 

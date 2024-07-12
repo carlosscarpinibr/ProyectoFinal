@@ -30,8 +30,7 @@ class Control():
                 rutaRelat = 'relat'
                 os.mkdir(rutaRelat)
                 with open(f'relat/controletxt.txt', 'w') as archivotxt:
-                    archivotxt.write('archivo de cotrole de la carpeta')
-                break
+                    archivotxt.write('archivo de control de la carpeta')
         
     
     def leerdatabase(self):
