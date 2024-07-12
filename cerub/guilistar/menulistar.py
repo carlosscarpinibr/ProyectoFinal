@@ -19,7 +19,7 @@ class Listar():
                 self.r.guirevision(indice[0],self.lista[indice[0]])
                 break
             except IndexError:
-                MessageBox.showerror("Atención","Seleccione una visita en la lista para visualízala.")
+                MessageBox.showerror("Atención","Seleccione una visita en la lista para visualizar.")
                 break
         
 
@@ -45,30 +45,41 @@ class Listar():
         
     def borrarvisita(self):
         indice = self.Lb1.curselection()
-        #indice=indice[0]
         controle = Control()
         visitas = controle.leerdatabase()
-        #print(indice)
-        del visitas[indice[0]]
-        controle.escribir(visitas)
-        print('Deletando item')
-        self.crearlista()
+        while True:
+            try:
+                del visitas[indice[0]]
+                controle.escribir(visitas)
+                self.crearlista()
+                MessageBox.showinfo("Visita borrada","Visita borrada con exito!")
+                break
+            except IndexError:
+                MessageBox.showerror("Atención","Seleccione una visita en la lista para borrar.")
+                break
         
-    def creartxt(self):
-        indice = self.Lb1.curselection()
-        indice = indice[0]
+        
+        
+    def imprimirvisita(self):
         controle = Control()
         visitas = controle.leerdatabase()
-        for key, value in visitas[indice].items():
-            nametxt= key
-        print(f'{nametxt}.txt')
-        with open(f'cerub/archivos/{nametxt}.txt', 'w') as f:
-            f.write(f'\t\t\tRelatório Médico:\n')
-            i = 0
-            for key, value in visitas[indice].items():
-                f.write(f'Nombre: {value['name']}\nMédico: {value['doctor']}')
-            os.system(f'notepad.exe cerub/archivos/{nametxt}.txt')
-            os.system(f'open -a TextEdit cerub/archivos/{nametxt}.txt')
+        while True:
+            try:
+                indice = self.Lb1.curselection()
+                indice = indice[0]
+                for key, value in visitas[indice].items():
+                    nametxt = key
+                with open(f'relat/{nametxt}.txt', 'w') as f:
+                    f.write(f'\t\t\tCERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA\n\n\t\t\t\tRelatório Médico\n\n\n')
+                    i = 0
+                    for key, value in visitas[indice].items():
+                        f.write(f'Nombre: {value['name']}\t\tEdad: {value['age']}\tFecha: {value['date']}\nMédico: {value['doctor']}\t\t\tSeguro: {value['insurance']}\nMedicación: {value['medicine']}\t\t\tDosis: {value['doses']}\nEquipo: {value['team']}\nAdmisión: {value['admission']}')
+                    os.system(f'notepad.exe relat/{nametxt}.txt')
+                    os.system(f'open -a TextEdit relat/{nametxt}.txt')
+                    break
+            except IndexError:
+                MessageBox.showerror("Atención","Seleccione una visita en la lista para imprimir.")
+                break
 
 
 
@@ -98,7 +109,7 @@ class Listar():
         frame2.grid(column=2, row=0)
         ttk.Button(frame2,  text='Visualizar visita', command =self.indicelista).grid(row=1, column=0, ipadx=2, ipady=2)
         ttk.Button(frame2,  text='Actualizar lista de visitas', command =self.actualizarlista).grid(row=0, column=0, ipadx=2, ipady=2)
-        ttk.Button(frame2, text='Imprimir', command=self.creartxt).grid(row=2, column=0, ipadx=2, ipady=2)
+        ttk.Button(frame2, text='Imprimir visita', command=self.imprimirvisita).grid(row=2, column=0, ipadx=2, ipady=2)
         ttk.Button(frame2, text='Borrar visita', command=self.borrarvisita).grid(row=3, column=0, ipadx=2, ipady=2)
         ttk.Button(frame2,  text='Salir', command = self.top.destroy).grid(row=4, column=0, ipadx=2, ipady=2)
         

@@ -7,6 +7,6 @@ setup (
     author='Carlos Scarpini',
     author_email='carlosscarpinibr@gmail.com',
     url='https://github.com/carlosscarpinibr',
-    packages=['cerub', 'cerub.archivos', 'cerub.guiestadistica', 'cerub.guilistar', 'cerub.guimenu', 'cerub.guinvisita','cerub.guirevision'],
+    packages=['cerub', 'cerub.guiestadistica', 'cerub.guilistar', 'cerub.guimenu', 'cerub.guinvisita','cerub.guirevision'],
     scripts=[]
     )

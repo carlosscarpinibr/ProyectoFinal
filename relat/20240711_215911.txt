@@ -1,0 +1,10 @@
+			CERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA
+
+				Relatório Médico
+
+
+Nombre: Wilson Carlos da Silva		Edad: 57	Fecha: 21:55
+Médico: Dr. Filipe			Seguro: Part
+Medicación: Pastilla			Dosis: 1 pd
+Equipo: CMO
+Admisión: 21:56
