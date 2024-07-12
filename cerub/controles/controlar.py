@@ -14,13 +14,25 @@ class Control():
                 break
             except FileNotFoundError:
                 rutaArchivos ='archivos'
-                rutaRelat = 'relat'
                 os.mkdir(rutaArchivos)
-                os.mkdir(rutaRelat)
                 lista = []
                 archivo = Path('archivos/pacientes.json')
                 contenidoLista = json.dumps(lista)
                 archivo.write_text(contenidoLista)
+    
+    def controlrelat(self):
+        while True:
+            try:
+                controltxt = Path('relat/controletxt.txt')
+                contenido = controltxt.read_text(encoding='utf-8')
+                break
+            except FileNotFoundError:
+                rutaRelat = 'relat'
+                os.mkdir(rutaRelat)
+                with open(f'relat/controletxt.txt', 'w') as archivotxt:
+                    archivotxt.write('archivo de cotrole de la carpeta')
+                break
+        
     
     def leerdatabase(self):
         archivo = Path('archivos/pacientes.json')

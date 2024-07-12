@@ -1,10 +1,10 @@
-			CERUB - CENTRO DE INFUSÃƒO DE UBERLÃ‚NDIA
+			CERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA
 
-				RelatÃ³rio MÃ©dico
+				Relatório Médico
 
 
 Nombre: Babi Freitas		Edad: 34	Fecha: 12/07/2024
-MÃ©dico: Dr. Lourival			Seguro: Part
-MedicaciÃ³n: Ibuprofeno			Dosis: 1 un
+Médico: Dr. Lourival			Seguro: Part
+Medicación: Ibuprofeno			Dosis: 1 un
 Equipo: CMO
-AdmisiÃ³n: 13:26
+Admisión: 13:26

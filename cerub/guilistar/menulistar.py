@@ -68,15 +68,14 @@ class Listar():
                 indice = self.Lb1.curselection()
                 indice = indice[0]
                 for key, value in visitas[indice].items():
-                    nametxt = key
-                with open(f'relat/{nametxt}.txt', 'w') as f:
+                    nombretxt = key
+                with open(f'relat/{nombretxt}.txt', 'w') as f:
                     f.write(f'\t\t\tCERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA\n\n\t\t\t\tRelatório Médico\n\n\n')
-                    i = 0
                     for key, value in visitas[indice].items():
                         f.write(f'Nombre: {value['name']}\t\tEdad: {value['age']}\tFecha: {value['date']}\nMédico: {value['doctor']}\t\t\tSeguro: {value['insurance']}\nMedicación: {value['medicine']}\t\t\tDosis: {value['doses']}\nEquipo: {value['team']}\nAdmisión: {value['admission']}')
-                    os.system(f'notepad.exe relat/{nametxt}.txt')
-                    os.system(f'open -a TextEdit relat/{nametxt}.txt')
-                    break
+                os.system(f'notepad.exe relat/{nombretxt}.txt')
+                os.system(f'open -a TextEdit relat/{nombretxt}.txt')
+                break
             except IndexError:
                 MessageBox.showerror("Atención","Seleccione una visita en la lista para imprimir.")
                 break

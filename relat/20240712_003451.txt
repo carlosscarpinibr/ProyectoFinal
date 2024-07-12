@@ -1,10 +1,10 @@
-			CERUB - CENTRO DE INFUSÃƒO DE UBERLÃ‚NDIA
+			CERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA
 
-				RelatÃ³rio MÃ©dico
+				Relatório Médico
 
 
 Nombre: Helena Maria Costa Alves		Edad: 70	Fecha: 12/07/2024
-MÃ©dico: Dr. Mattar			Seguro: Part
-MedicaciÃ³n: Aspirina			Dosis: 1 un
+Médico: Dr. Mattar			Seguro: Part
+Medicación: Aspirina			Dosis: 1 un
 Equipo: All Klinic
-AdmisiÃ³n: 
+Admisión: 
