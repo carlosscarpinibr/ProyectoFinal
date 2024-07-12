@@ -126,7 +126,6 @@ class Revision():
         self.r = StringVar()
         self.i = 50
         
-        
 
 
         self.root.title("CENTRO DE INFUSÃO DE UBERLÂNDIA")

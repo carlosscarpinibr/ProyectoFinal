@@ -5,6 +5,7 @@ from cerub.guirevision.menurevison import Revision
 from cerub.controles.controlar import Control
 from pathlib import Path
 import json
+import os
 
 class Listar():
     def __init__(self):
@@ -20,7 +21,7 @@ class Listar():
             except IndexError:
                 MessageBox.showerror("Atención","Seleccione una visita en la lista para visualízala.")
                 break
-            
+        
 
     def crearlista(self):
         self.frame1 = ttk.Frame(self.top, padding="6 6 6 6")
@@ -41,6 +42,33 @@ class Listar():
         self.Lb1.destroy()
         self.crearlista()
         MessageBox.showinfo("Atualiza lista","Lista actualizada con exito!")
+        
+    def borrarvisita(self):
+        indice = self.Lb1.curselection()
+        #indice=indice[0]
+        controle = Control()
+        visitas = controle.leerdatabase()
+        #print(indice)
+        del visitas[indice[0]]
+        controle.escribir(visitas)
+        print('Deletando item')
+        self.crearlista()
+        
+    def creartxt(self):
+        indice = self.Lb1.curselection()
+        indice = indice[0]
+        controle = Control()
+        visitas = controle.leerdatabase()
+        for key, value in visitas[indice].items():
+            nametxt= key
+        print(f'{nametxt}.txt')
+        with open(f'cerub/archivos/{nametxt}.txt', 'w') as f:
+            f.write(f'\t\t\tRelatório Médico:\n')
+            i = 0
+            for key, value in visitas[indice].items():
+                f.write(f'Nombre: {value['name']}\nMédico: {value['doctor']}')
+            os.system(f'notepad.exe cerub/archivos/{nametxt}.txt')
+            os.system(f'open -a TextEdit cerub/archivos/{nametxt}.txt')
 
 
 
@@ -70,7 +98,9 @@ class Listar():
         frame2.grid(column=2, row=0)
         ttk.Button(frame2,  text='Visualizar visita', command =self.indicelista).grid(row=1, column=0, ipadx=2, ipady=2)
         ttk.Button(frame2,  text='Actualizar lista de visitas', command =self.actualizarlista).grid(row=0, column=0, ipadx=2, ipady=2)
-        ttk.Button(frame2,  text='Salir', command = self.top.destroy).grid(row=2, column=0, ipadx=2, ipady=2)
+        ttk.Button(frame2, text='Imprimir', command=self.creartxt).grid(row=2, column=0, ipadx=2, ipady=2)
+        ttk.Button(frame2, text='Borrar visita', command=self.borrarvisita).grid(row=3, column=0, ipadx=2, ipady=2)
+        ttk.Button(frame2,  text='Salir', command = self.top.destroy).grid(row=4, column=0, ipadx=2, ipady=2)
         
         self.top.mainloop()
 

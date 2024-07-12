@@ -27,3 +27,5 @@ class Control():
         archivo = Path('cerub/archivos/pacientes.json')
         contenidos = json.dumps(pacientes, indent=4, sort_keys=True)
         archivo.write_text(contenidos)
+        
+    
