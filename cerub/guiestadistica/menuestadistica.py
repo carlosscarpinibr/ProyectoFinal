@@ -31,11 +31,11 @@ class Estadistica():
         ttk.Button(self.frame1,  text='Generar histograma', command=self.generaselecion).grid(row=0, column=0, ipadx=2, ipady=2)
         ttk.Button(self.frame1,  text='Salir', command = self.etop.destroy).grid(row=2, column=0, ipadx=2, ipady=2)
         
-        self.opciones = ['Nombre','Médico','Equipo','Medicación']
+        self.opciones = ['Paciente','Médico','Equipo','Medicación']
         self.frame2 = ttk.Frame(self.etop, padding="6 6 6 6")
         self.frame2.grid(column=1, row=0)
         self.parametro = ttk.Combobox(self.frame2,  values = self.opciones, state='readonly')
-        self.parametro.current(0)
+        self.parametro.current(1)
         self.parametro.grid(row=0, column=0, ipadx=2, ipady=2)
         
         
@@ -51,7 +51,7 @@ class Estadistica():
             - Salida de datos:
             El histograma elegido por el usuario.
         '''
-        if self.parametro.get() == 'Nombre':
+        if self.parametro.get() == 'Paciente':
             campo = 'name'
             listaA, listaB = self.analisadatos(campo)
             self.generarhistnombres(listaA,listaB)
