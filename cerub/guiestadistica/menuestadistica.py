@@ -34,7 +34,7 @@ class Estadistica():
         self.opciones = ['Nombre','Médico','Equipo','Medicación']
         self.frame2 = ttk.Frame(self.etop, padding="6 6 6 6")
         self.frame2.grid(column=1, row=0)
-        self.parametro = ttk.Combobox(self.frame2,  values = self.opciones, state='readyonly')
+        self.parametro = ttk.Combobox(self.frame2,  values = self.opciones, state='readonly')
         self.parametro.current(0)
         self.parametro.grid(row=0, column=0, ipadx=2, ipady=2)
         
@@ -58,15 +58,15 @@ class Estadistica():
         elif self.parametro.get() == 'Médico':
             campo = 'doctor'
             listaA, listaB = self.analisadatos(campo)
-            self.generarhistnombres(listaA,listaB)
+            self.generarhistmedicos(listaA,listaB)
         elif self.parametro.get() == 'Equipo':
             campo = 'team'
             listaA, listaB = self.analisadatos(campo)
-            self.generarhistnombres(listaA,listaB)
+            self.generarhistequipo(listaA,listaB)
         elif self.parametro.get() == 'Medicación':
             campo = 'medicine'
             listaA, listaB = self.analisadatos(campo)
-            self.generarhistnombres(listaA,listaB)
+            self.generarhistmedicacion(listaA,listaB)
         
 
 

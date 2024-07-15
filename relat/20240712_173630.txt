@@ -1,10 +1,10 @@
-			CERUB - CENTRO DE INFUSÃO DE UBERLÂNDIA
+			CERUB - CENTRO DE INFUSÃƒO DE UBERLÃ‚NDIA
 
-				Relatório Médico
+				RelatÃ³rio MÃ©dico
 
 
 Nombre: Yasmin Freitas		Edad: 10	Fecha: 12/07/2024
-Médico: Dr. Lourival			Seguro: Part
-Medicación: Paracetamol			Dosis: 20 go
+MÃ©dico: Dr. Lourival			Seguro: Part
+MedicaciÃ³n: Paracetamol			Dosis: 20 go
 Equipo: Retina Clinic
-Admisión: 17:34
+AdmisiÃ³n: 17:34
